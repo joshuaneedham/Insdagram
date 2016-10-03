@@ -6,7 +6,7 @@
 
 ## Minimum Viable Product
 
-Insdagram is a clone of Instagram's website, including features
+Insdagram is a clone of Instagram's website, which allows users to post pictures and view the posts of followed users in their feed.  Features of Insdagram include:
 
 - [ ] Hosting on Heroku
 - [ ] New account creation, login, and guest/demo login
@@ -26,11 +26,11 @@ Insdagram is a clone of Instagram's website, including features
 * [Sample State][sample-state]
 
 [wireframes]: docs/wireframes
-[components]: docs/component-heirarchy.md
-[redux-structure]: docs/redux-structure.md
-[sample-state]: docs/sample-state.md
-[api-endpoints]: docs/api-endpoints.md
-[schema]: docs/schema.md
+[components]: ./component-heirarchy.md
+[redux-structure]: ./redux-structure.md
+[sample-state]: ./sample-state.md
+[api-endpoints]: ./api-endpoints.md
+[schema]: ./schema.md
 
 ## Implementation Timeline
 
@@ -51,7 +51,7 @@ Insdagram is a clone of Instagram's website, including features
 - [ ] Seed users
 - [ ] Review phase 1
 
-### Phase 2: Notes Model, API, and components (2 days)
+### Phase 2: Posts Model, API, and components (2 days)
 
 **Objective:** Posts can be created, read, edited and destroyed through
 the API.
@@ -59,56 +59,59 @@ the API.
 - [ ] `Posts` model
 - [ ] Seed database with a small amount of test data
 - [ ] CRUD API for posts (`PostController`)
-- [ ] JBuilder views for notes
-- Note components and respective Redux loops
+- [ ] JBuilder views for posts
+- [ ] Test API in the console
+- Post components and respective Redux loops
+  - [ ] `PostsIndex`
+  - [ ] `PostIndexItem`
+  - [ ] `PostForm` to create posts
+- [ ] Save posts to the database
 - [ ] Style posts
 - [ ] Seed posts
 
-### Phase 3: Notebooks (2 day)
+### Phase 3: Posts User Page (1 day)
 
-**Objective:** Notes belong to Notebooks that can be created, read, edited and destroyed through the API.
+**Objective:** Posts appear on a user's profile and belong to the user who posted a given post.
 
-- [ ] `Notebook` model
-- [ ] Seed database with a small amount of test data
-- [ ] CRUD API for notes (`NotebooksController`)
-- [ ] JBuilder views for notebooks
-- [ ] Adding notes requires a notebook
-- [ ] Moving notes between notebooks
-- [ ] Viewing notes by notebook
-- [ ] Style notebook components
-- [ ] Seed notebooks
+- [ ] Build API, React loop, and components for:
+  - [ ] User-profile/posts CRUD
+  - [ ] Adding posts requires user and user-id
+  - [ ] A user's posts can be viewed on that user's feed
+- [ ] Use CSS Styling on profiles
 
-### Phase 4: Tags (1 days)
+### Phase 4: Followers (2 days)
 
-**Objective:** Notes can be tagged with multiple tags, and tags are searchable.
+**Objective:** Users follow others to see their posts
 
-- [ ] `Tag` model and `Taggings` join table
-- [ ] Fetching tags for notes
-- [ ] Adding tags to notes
-- [ ] Searching notes by tag
-- [ ] Style search & tag components
-- [ ] Seed tags with seed data
+- [ ] Create Followers model
+- [ ] Build API, Redux loop, and components for following a user through search bar or a suggested followers popup
+- [ ] Style elements
+- [ ] Seed followers
 
-### Phase 5: Allow Complex Styling in Notes (1 days, W2 Th 6pm)
+## Phase 5: Comments (2 days)
 
-**objective:** Allow rich text editing of notes.
+**Objective:** Users can comment on one another's posts
 
-- [ ] Integrate `react-quill` (based on Quill.js).
-- [ ] Rails helpers to sanitize HTML before rendering.
-- [ ] Style Quill components.
-- [ ] Add Quill styling to seeded notes
+- [ ] Create Comments model
+- [ ] Build API, Redux loop, and components for commenting on a post
+- [ ] Style new elements
+- [ ] Seed comments
 
-### Phase 6: - Pagination / infinite scroll for Notes Index (1 day, W2 F 6pm)
+### Phase 6: Likes (1 days)
 
-**objective:** Add infinite scroll to Notes Index
+**Objective:** Users can like posts and the tally is displayed
 
-- [ ] Paginate Notes Index API to send 20 results at a time
-- [ ] Append next set of results when user scrolls and is near bottom
-- [ ] Style scroll components and transitions
-- [ ] Ensure seed data demonstrates infinite scroll
+- [ ] Create Likes model
+- [ ] Build API, Redux loop, and components for liking post
+- [ ] Style new elements
+- [ ] Seed likes
+
+### Phase 7: Infinite scroll for Posts Index
+
+**objective:** Add infinite scroll to Posts Index
+
+- [ ] Paginate Posts Index API to provide 10 posts at a time
+- [ ] Append next 10 results when user scrolls to the bottom of the page
+- [ ] Seed over 30 posts for accounts Demo user is following.
 
 ### Bonus Features (TBD)
-- [ ] Search notes by content
-- [ ] Set reminders on notes
-- [ ] Changelogs for Notes
-- [ ] Multiple sessions
