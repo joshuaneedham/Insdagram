@@ -1,20 +1,20 @@
-# FresherNote
+# Insdagram
 
-[Heroku link][heroku] **Note:** This should be a link to your production site
+[Heroku link][heroku] **Note:** Will be added at later date
 
 [heroku]: http://www.herokuapp.com
 
 ## Minimum Viable Product
 
-FresherNote is a web application inspired by Evernote built using Ruby on Rails and React/Redux.  By the end of Week 9, this app will, at a minimum, satisfy the following criteria with smooth, bug-free navigation, adequate seed data and sufficient CSS styling:
+Insdagram is a clone of Instagram's website, including features
 
 - [ ] Hosting on Heroku
 - [ ] New account creation, login, and guest/demo login
-- [ ] Notes
-- [ ] Notebooks for organizing notes
-- [ ] Tags
-- [ ] Rich Text Editing
-- [ ] Infinite Scroll
+- [ ] Images
+- [ ] Likes
+- [ ] Commenting on images
+- [ ] Following & Photo Feed
+- [ ] Bonus: Hashtags
 - [ ] Production README [sample](docs/production_readme.md)
 
 ## Design Docs
@@ -53,20 +53,16 @@ FresherNote is a web application inspired by Evernote built using Ruby on Rails 
 
 ### Phase 2: Notes Model, API, and components (2 days)
 
-**Objective:** Notes can be created, read, edited and destroyed through
+**Objective:** Posts can be created, read, edited and destroyed through
 the API.
 
-- [ ] `Note` model
+- [ ] `Posts` model
 - [ ] Seed database with a small amount of test data
-- [ ] CRUD API for notes (`NotesController`)
+- [ ] CRUD API for posts (`PostController`)
 - [ ] JBuilder views for notes
 - Note components and respective Redux loops
-  - [ ] `NotesIndex`
-  - [ ] `NoteIndexItem`
-  - [ ] `NoteForm`
-- [ ] Autosave notes feature
-- [ ] Style notes components
-- [ ] Seed notes
+- [ ] Style posts
+- [ ] Seed posts
 
 ### Phase 3: Notebooks (2 day)
 
