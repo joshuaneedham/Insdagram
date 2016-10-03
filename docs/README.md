@@ -25,7 +25,7 @@ Insdagram is a clone of Instagram's website, which allows users to post pictures
 * [Redux Structure][redux-structure]
 * [Sample State][sample-state]
 
-[wireframes]: docs/wireframes
+[wireframes]: wireframes
 [components]: component-hierarchy.md
 [redux-structure]: redux-structure.md
 [sample-state]: sample-state.md
