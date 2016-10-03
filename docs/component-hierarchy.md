@@ -1,0 +1,33 @@
+## Component Heirarchy
+
+ - App
+  - LoginForm
+  - SignupForm
+  - PostsIndex
+    - Navbar
+      - PostsIndexLink
+      - SearchBar for users to view their profile
+      - Link to UploadPostForm
+      - UserProfileLink
+      - LogoutButton
+    - PostFeed
+      - PostFeedItem
+        - HeaderBar
+          - UserInfo
+          - DateStamp
+        - Image
+        - FooterBar
+          - Username and Caption
+          - LikesCounter
+          - CommentDisplay
+          - InteractiveBar
+            - LikeButton
+            - AddCommentForm
+  - UserProfile
+    - ProfileHeader
+      - Username
+      - NumberOfPosts
+      - FullName
+      - FollowButton
+    - UserPosts
+      - Posts
