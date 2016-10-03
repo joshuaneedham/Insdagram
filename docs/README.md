@@ -26,11 +26,11 @@ Insdagram is a clone of Instagram's website, which allows users to post pictures
 * [Sample State][sample-state]
 
 [wireframes]: docs/wireframes
-[components]: ./component-heirarchy.md
-[redux-structure]: ./redux-structure.md
-[sample-state]: ./sample-state.md
-[api-endpoints]: ./api-endpoints.md
-[schema]: ./schema.md
+[components]: component-heirarchy.md
+[redux-structure]: redux-structure.md
+[sample-state]: sample-state.md
+[api-endpoints]: api-endpoints.md
+[schema]: schema.md
 
 ## Implementation Timeline
 
@@ -88,7 +88,7 @@ the API.
 - [ ] Style elements
 - [ ] Seed followers
 
-## Phase 5: Comments (2 days)
+### Phase 5: Comments (2 days)
 
 **Objective:** Users can comment on one another's posts
 
