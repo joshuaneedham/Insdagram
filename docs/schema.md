@@ -5,7 +5,7 @@ column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
 username        | string    | not null, indexed, unique
-full_name       | string    | not null, indexed, unique
+full_name       | string    | not null
 password_digest | string    | not null
 session_token   | string    | not null, indexed, unique
 timestamps      |           |
@@ -14,9 +14,9 @@ timestamps      |           |
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-image-url   | string    | not null
+image_url   | string    | not null
 caption     | text      |
-user-id     | text      | not null
+user_id     | integer   | not null, foreign key
 timestamps  |           |
 
 ## likes

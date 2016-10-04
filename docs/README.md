@@ -15,7 +15,6 @@ Insdagram is a clone of Instagram's website, which allows users to post pictures
 - [ ] Commenting on images
 - [ ] Following & Photo Feed
 - [ ] Bonus: Hashtags
-- [ ] Production README [sample](docs/production_readme.md)
 
 ## Design Docs
 * [View Wireframes][wireframes]
@@ -88,7 +87,7 @@ the API.
 - [ ] Style elements
 - [ ] Seed followers
 
-### Phase 5: Comments (2 days)
+### Phase 5: Comments (1 day)
 
 **Objective:** Users can comment on one another's posts
 
