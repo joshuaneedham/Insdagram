@@ -10,6 +10,7 @@ class SessionForm extends React.Component {
 			password: ""
 		};
 		this.handleSubmit = this.handleSubmit.bind(this);
+    this.guestLogin = this.guestLogin.bind(this);
 	}
 
 	componentDidUpdate() {
@@ -78,6 +79,22 @@ class SessionForm extends React.Component {
     return this.props.formType === "login" ? "Log in" : "Sign up";
   }
 
+  guestLogin(){
+    this.setState({username: "test", password: "testing"});
+    const user = {username: "test", password: "testing"};
+  }
+
+  guestLoginButton(){
+    if (this.props.formType === "login") {
+      return (
+        <div className="login-guest-button">
+          <p>OR</p>
+          <button onClick={this.guestLogin}>Log in with Guest Account</button>
+        </div>
+      );
+    }
+  }
+
 	renderErrors() {
 		return(
 			<ul>
@@ -113,12 +130,16 @@ class SessionForm extends React.Component {
               placeholder="Password"
 							className="entry-input" />
 
+
 						<br/>
 						<input type="submit" value={this.submitButtonText()} />
+
+            <br/>
+            { this.guestLoginButton() }
             { this.renderErrors() }
 					</div>
 
-          <div>
+          <div className="entry-toggle">
             {this.toggleFormText()} {this.navLink()}
           </div>
 				</form>
