@@ -1,0 +1,24 @@
+/* --- RESET --- */
+
+html, div {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  box-sizing: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  color: inherit;
+}
+
+.group {
+  display: block;
+  clear: both;
+  content: "";
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+}
