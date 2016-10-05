@@ -36,11 +36,47 @@ class SessionForm extends React.Component {
 
 	navLink() {
 		if (this.props.formType === "login") {
-			return <Link to="/signup">sign up instead</Link>;
+			return <Link to="/signup">Sign Up</Link>;
 		} else {
-			return <Link to="/login">log in instead</Link>;
+			return <Link to="/login">Log In</Link>;
 		}
 	}
+
+  signupHeaderAdditionalText(){
+    if (this.props.formType === "signup") {
+      return (
+        <p>Sign up to see photos from your friends</p>
+      );
+    }
+  }
+
+  signupHeaderAdditionalField(){
+    if (this.props.formType === "signup") {
+      return (
+        <input type="text"
+          placeholder = "Full Name"
+          value={this.state.full_name}
+          onChange={this.update("full_name")}
+          className="login-input" />
+      );
+    }
+  }
+
+  submitButtonText(){
+    if (this.props.formType === "login") {
+      return "Login";
+    } else {
+      return "Sign Up";
+    }
+  }
+
+  toggleSessionFormText(){
+    if (this.props.formType === "login") {
+      return "Don't have an account? ";
+    } else {
+      return "Have an account? ";
+    }
+  }
 
 	renderErrors() {
 		return(
@@ -56,41 +92,41 @@ class SessionForm extends React.Component {
 
 	render() {
 		return (
-			<div className="login-form-container">
+			<div className="session-form-container">
 				<form onSubmit={this.handleSubmit} className="login-form-box">
-					Welcome to Insdagram!
-					<br/>
-					Please {this.props.formType} or {this.navLink()}
-					{ this.renderErrors() }
-					<div className="login-form">
-            <br/>
-            <label> Full Name:
-              <input type="text"
-                value={this.state.full_name}
-                onChange={this.update("full_name")}
-                className="login-input" />
-            </label>
+
+          <h3 className="session-form-header">Insdagram</h3>
+          { this.signupHeaderAdditionalText() }
+
+					<div className="session-form">
+            { this.signupHeaderAdditionalField() }
 
 						<br/>
-						<label> Username: 
 							<input type="text"
+                placeholder = "Username"
 								value={this.state.username}
 								onChange={this.update("username")}
 								className="login-input" />
-						</label>
 
 						<br/>
-						<label> Password:
 							<input type="password"
+                placeholder= "Password"
 								value={this.state.password}
 								onChange={this.update("password")}
 								className="login-input" />
-						</label>
 
 						<br/>
-						<input type="submit" value="Submit" />
+						<input type="submit"
+              value={ this.submitButtonText() } />
 					</div>
 				</form>
+
+        <br/>
+        <div className="session-form-">
+          {this.toggleSessionFormText()}{this.navLink()}
+        </div>
+
+        { this.renderErrors() }
 			</div>
 		);
 	}
