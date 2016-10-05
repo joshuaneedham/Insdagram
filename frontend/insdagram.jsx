@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store.js';
+import Root from './components/root';
 
 // import { signup, login, logout } from './util/session_api_util.js';
 // // testing AJAX functions from the console
@@ -12,16 +13,17 @@ import {
   login,
   signup
 } from './actions/session_actions';
-// testing Session Actions from the console
-
-window.signup = signup;
+// window.signup = signup;
 window.login = login;
-window.logout = logout;
-window.receiveCurrentUser = receiveCurrentUser;
-window.receiveErrors = receiveErrors;
+// window.logout = logout;
+// window.receiveCurrentUser = receiveCurrentUser;
+// window.receiveErrors = receiveErrors;
+// // testing Session Actions from the console
 
 document.addEventListener('DOMContentLoaded', () => {
-    window.store = configureStore();
-    const root = document.getElementById('root');
-    ReactDOM.render(<h1>Insdagram</h1>, root);
+  let store;
+  store = configureStore();
+  window.store = store;
+  const root = document.getElementById('root');
+  ReactDOM.render(<Root store={store}/>, root);
 });
