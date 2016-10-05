@@ -5,10 +5,19 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <script type="text/javascript">
+   window.insdagramAssets = {
+     // image_url is a rails helper method that does the fingerprinting
+     // so we need erb tag to use ruby
+     // file name is an argument to the image_url method
+     loginImage: "<%= image_url("Instagram-Login-Asset.png") %>"
+   }
+ </script>
 </head>
 <body>
 <style>
 @import 'https://fonts.googleapis.com/css?family=Pacifico';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans';
 </style>
 
 <%= yield %>

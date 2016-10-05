@@ -1,6 +1,6 @@
 /* --- RESET --- */
 
-html, div {
+html, div, text, {
   margin: 0;
   padding: 0;
   border: 0;
@@ -11,6 +11,7 @@ html, div {
   text-decoration: inherit;
   vertical-align: inherit;
   color: inherit;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .group {
@@ -19,10 +20,51 @@ html, div {
   content: "";
 }
 
+body {
+  background: #fafafa;
+}
+
 h1 {
   font-family: 'Pacifico', cursive;
+  text-align: center;
+  font-size: 40px;
 }
 
 ul {
   list-style: none;
+}
+
+.entry-form-container {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 935px;
+  margin: 40px auto 0;
+}
+
+.entry-toggle {
+  float: left;
+}
+
+.login-image {
+  float: left;
+}
+
+.entry-form-box {
+  float: left;
+  background: white;
+  padding: 40px;
+  border: 1px solid #efefef;
+}
+
+.login-guest-button button,  {
+  background: #3897f0;
+  border-radius: 4px;
+  color: white;
+  border: none;
+  width: 270px;
+  outline: none;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 10px;
 }

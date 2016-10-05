@@ -109,7 +109,9 @@ class SessionForm extends React.Component {
 
 	render() {
 		return (
-			<div className="entry-form-container">
+			<div className="entry-form-container group">
+        <img className="login-image" src={insdagramAssets.loginImage}></img>
+
 				<form onSubmit={this.handleSubmit} className="entry-form-box">
 					<div className="entry-form">
             <h1>Insdagram</h1>
@@ -138,11 +140,11 @@ class SessionForm extends React.Component {
             { this.guestLoginButton() }
             { this.renderErrors() }
 					</div>
-
-          <div className="entry-toggle">
-            {this.toggleFormText()} {this.navLink()}
-          </div>
 				</form>
+
+        <div className="entry-toggle">
+          {this.toggleFormText()} {this.navLink()}
+        </div>
 			</div>
 		);
 	}
