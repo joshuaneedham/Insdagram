@@ -13,7 +13,11 @@ const Root = ({ store }) => {
   }
 
   const _ensureLoggedIn = (nextState, replace) => {
+<<<<<<< HEAD
     if (!currentUser) { replace('/login'); }
+=======
+    if (!currentUser) { replace('/login') }
+>>>>>>> ee0223e910de69b87ffb3e5b44511d3e89ea4c5b
   }
 
   return (
