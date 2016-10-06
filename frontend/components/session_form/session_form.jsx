@@ -61,7 +61,6 @@ class SessionForm extends React.Component {
     } else {
       return "Have an account?";
     }
-
   }
 
 	navLink() {

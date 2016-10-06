@@ -21,6 +21,8 @@ class User < ActiveRecord::Base
   validates :username, length: {in: 4..25}
   validates :password, length: {in: 6..16, allow_nil: true}
 
+  has_many :posts
+
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     return nil unless user && user.is_password?(password)
