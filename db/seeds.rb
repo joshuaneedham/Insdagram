@@ -7,5 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.destroy_all
+Post.destroy_all
 
 user1 = User.create!(full_name: "Test User", username: "test", password: "testing")
+
+file1 = File.open("app/assets/images/Rockefeller.jpg")
+post1 = Post.create!(caption: "NYC", user_id: user1.id, image: file1)
