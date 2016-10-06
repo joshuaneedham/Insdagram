@@ -2,7 +2,7 @@
 
 [Heroku link][heroku] **Note:** Will be added at later date
 
-[heroku]: http://www.herokuapp.com
+[heroku]: insdagram.herokuapp.com
 
 ## Minimum Viable Product
 

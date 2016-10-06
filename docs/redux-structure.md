@@ -74,7 +74,7 @@ Redux structure, you'll need to do the same.
   0. `DELETE /api/posts/:id` is called.
   0. `removePost` is set as the success callback.
 
-### Notebooks API Response Actions
+### Posts API Response Actions
 
   * `receiveAllPosts`
     0. invoked from an API callback.
