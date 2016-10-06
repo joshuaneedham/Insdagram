@@ -130,11 +130,10 @@ class SessionForm extends React.Component {
                   placeholder="Password"
     							className="entry-input" />
 
-    						<br/>
     						<input
                   type="submit"
                   value={this.submitButtonText()}
-                  className="login-button" />
+                  className="login-button submit-button" />
 
                 <br/>
                 { this.guestLoginButton() }
