@@ -1,8 +1,8 @@
 # Insdagram
 
-[Heroku link][heroku] **Note:** Will be added at later date
+[Heroku link][heroku]
 
-[heroku]: insdagram.herokuapp.com
+[heroku]: http://insdagram.herokuapp.com
 
 ## Minimum Viable Product
 
