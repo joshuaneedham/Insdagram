@@ -86,7 +86,7 @@ class SessionForm extends React.Component {
       return (
         <div className="login-guest-button">
           <p className="or-divider">OR</p>
-          <button onClick={this.guestLogin} className="login-button"ß>
+          <button onClick={this.guestLogin} className="login-button">
             Log in with Guest Account
           </button>
         </div>
