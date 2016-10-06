@@ -38,10 +38,7 @@ class SessionForm extends React.Component {
   signUpFormText(){
     if (this.props.formType === "signup") {
       return (
-        <div>
-          <p>Sign up to see photos from your friends</p>
-          <br/>
-        </div>
+        <p className="entry-tagline">Sign up to see photos from your friends.</p>
       );
     }
   }
@@ -88,8 +85,10 @@ class SessionForm extends React.Component {
     if (this.props.formType === "login") {
       return (
         <div className="login-guest-button">
-          <p>OR</p>
-          <button onClick={this.guestLogin}>Log in with Guest Account</button>
+          <p className="or-divider">OR</p>
+          <button onClick={this.guestLogin} className="login-button"ß>
+            Log in with Guest Account
+          </button>
         </div>
       );
     }
@@ -97,7 +96,7 @@ class SessionForm extends React.Component {
 
 	renderErrors() {
 		return(
-			<ul>
+			<ul className="errors-list">
 				{this.props.errors.map((error, i) => (
 					<li key={`error-${i}`}>
 						{error}
@@ -109,43 +108,46 @@ class SessionForm extends React.Component {
 
 	render() {
 		return (
-			<div className="entry-form-container group">
-        <img className="login-image" src={insdagramAssets.loginImage}></img>
+  			<div className="entry-form-container group">
+          <img className="login-image" src={insdagramAssets.loginImage}></img>
 
-				<form onSubmit={this.handleSubmit} className="entry-form-box">
-					<div className="entry-form">
-            <h1>Insdagram</h1>
+          <div className="login-right-side">
+    				<form onSubmit={this.handleSubmit} className="entry-form-box">
+    					<div className="entry-form">
+                <h1>Insdagram</h1>
 
-            { this.signUpFormText() }
-            { this.signUpFormField() }
-						<br/>
-						<input type="text"
-							value={this.state.username}
-							onChange={this.update("username")}
-              placeholder="Username"
-							className="entry-input" />
+                { this.signUpFormText() }
+                { this.signUpFormField() }
 
-						<br/>
-						<input type="password"
-							value={this.state.password}
-							onChange={this.update("password")}
-              placeholder="Password"
-							className="entry-input" />
+    						<input type="text"
+    							value={this.state.username}
+    							onChange={this.update("username")}
+                  placeholder="Username"
+    							className="entry-input" />
 
+    						<input type="password"
+    							value={this.state.password}
+    							onChange={this.update("password")}
+                  placeholder="Password"
+    							className="entry-input" />
 
-						<br/>
-						<input type="submit" value={this.submitButtonText()} />
+    						<br/>
+    						<input
+                  type="submit"
+                  value={this.submitButtonText()}
+                  className="login-button" />
 
-            <br/>
-            { this.guestLoginButton() }
-            { this.renderErrors() }
-					</div>
-				</form>
+                <br/>
+                { this.guestLoginButton() }
+                { this.renderErrors() }
+    					</div>
+  				  </form>
+          </div>
 
-        <div className="entry-toggle">
-          {this.toggleFormText()} {this.navLink()}
-        </div>
-			</div>
+          <div className="toggle-form">
+            {this.toggleFormText()} {this.navLink()}
+          </div>
+		    </div>
 		);
 	}
 }
