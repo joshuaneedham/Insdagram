@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -30,15 +30,17 @@ class NavBar extends React.Component {
     if (this.props.currentUser) {
       return this.showHeader();
     } else {
-      return ;
+      hashHistory.push("/login");
     }
   }
 
   render(){
     return (
       <div className="nav-container">
-        <img className="official-logo" src={insdagramAssets.logoIcon} />
-        <input className="user-search" type="search" placeholder="Search"/>
+        <img className="official-logo"
+          src={insdagramAssets.logoIcon}
+          onClick={() => hashHistory.push("/")}/>
+        <input className="user-search" type="search" placeholder="Search" />
         { this.checkLogIn() }
       </div>
     );
