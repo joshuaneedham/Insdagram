@@ -22,6 +22,24 @@ class User < ActiveRecord::Base
   validates :password, length: {in: 6..16, allow_nil: true}
 
   has_many :posts
+  has_many :comments
+  has_many :likes
+
+  has_many :followeds,
+    class_name: "Follow",
+    foreign_key: :follower_id
+
+  has_many :following_users,
+    through: :followeds,
+    source: :following_user
+
+  has_many :followings,
+    class_name: "Follow",
+    foreign_key: :followed_id
+
+  has_many :followed_users,
+    through: :followings,
+    source: :followed_user
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
