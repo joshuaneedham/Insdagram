@@ -13,7 +13,7 @@ class NavBar extends React.Component {
     return (
     	<hgroup className="nav-bar-group group">
     		<button className="header-logout-button" onClick={this.props.logout}>Log Out</button>
-        <input className="user-search" type="search" placeholder="search"/>
+        <input className="user-search" type="search" placeholder="Search"/>
     	</hgroup>
     );
   }
