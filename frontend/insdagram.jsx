@@ -20,20 +20,19 @@ import Root from './components/root';
 // window.receiveErrors = receiveErrors;
 // // testing Session Actions from the console
 
-import {
-  requestPosts,
-  requestPost,
-  receivePosts,
-  receivePost,
-  createPost
-} from './actions/post_actions';
-
-window.requestPosts = requestPosts;
-window.requestPost = requestPost;
-window.receivePosts = receivePosts;
-window.receivePost = receivePost;
-window.createPost = createPost;
-// testing Post Actions from the console
+// import {
+//   requestPosts,
+//   requestPost,
+//   receivePosts,
+//   receivePost,
+//   createPost
+// } from './actions/post_actions';
+// window.requestPosts = requestPosts;
+// window.requestPost = requestPost;
+// window.receivePosts = receivePosts;
+// window.receivePost = receivePost;
+// window.createPost = createPost;
+// // testing Post Actions from the console
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -43,8 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
-
-  window.store = store;
 
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store}/>, root);
