@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
 
   has_many :following_users,
     through: :followeds,
-    source: :following_user
+    source: :followed_user
 
   has_many :followings,
     class_name: "Follow",
@@ -39,7 +39,7 @@ class User < ActiveRecord::Base
 
   has_many :followed_users,
     through: :followings,
-    source: :followed_user
+    source: :following_user
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
