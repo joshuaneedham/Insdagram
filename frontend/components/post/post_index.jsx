@@ -13,7 +13,7 @@ class PostIndex extends React.Component {
 
   images() {
     return this.props.posts.map( post => (
-      <img src={post.image_url} key={post.id} height="500" width="500"/>
+      <img className="posts" src={post.image_url} key={post.id} height="500" width="500"/>
     ));
   }
 
