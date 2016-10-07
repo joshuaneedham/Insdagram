@@ -11,10 +11,18 @@ class NavBar extends React.Component {
 
   showHeader(){
     return (
-    	<hgroup className="nav-bar-group group">
-    		<button className="header-logout-button" onClick={this.props.logout}>Log Out</button>
-        <input className="user-search" type="search" placeholder="Search"/>
-    	</hgroup>
+    	<div className="icons-group">
+        <img
+          src={insdagramAssets.addPhotoImage}
+          className="icon" />
+        <img
+          src={insdagramAssets.userViewImage}
+          className="icon" />
+    		<img
+          src={insdagramAssets.logoutButtonImage}
+          className="header-logout-button icon"
+          onClick={this.props.logout} />
+      </div>
     );
   }
 
@@ -29,6 +37,8 @@ class NavBar extends React.Component {
   render(){
     return (
       <div className="nav-container">
+        <img className="official-logo" src={insdagramAssets.logoIcon} />
+        <input className="user-search" type="search" placeholder="Search"/>
         { this.checkLogIn() }
       </div>
     );
