@@ -1,0 +1,19 @@
+html, div, text, body, h1 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  box-sizing: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  color: #acaca5;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.group {
+  display: block;
+  clear: both;
+  content: "";
+}

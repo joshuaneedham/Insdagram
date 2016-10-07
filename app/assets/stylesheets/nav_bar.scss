@@ -1,0 +1,33 @@
+.nav-container {
+  margin: 0;
+  padding: 0;
+}
+
+.nav-bar-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: white;
+  width: 100%;
+  height: 72px;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.header-logout-button {
+  order: 3;
+}
+
+.user-search {
+  order: 2;
+  background: #fafafa;
+  height: 28px;
+  width: 212px;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+  padding: 9px;
+  font-size: 13px;
+}
+
+.user-search:active {
+  background: white;
+}

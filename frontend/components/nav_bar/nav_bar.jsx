@@ -1,27 +1,39 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const sessionLinks = () => (
-  <nav className="login-signup">
-    <Link to="/login">Login</Link>
-    &nbsp;or&nbsp;
-    <Link to="/signup">Sign up!</Link>
-  </nav>
-);
+class NavBar extends React.Component {
+  constructor(props) {
+    super(props);
 
-const personalGreeting = (currentUser, logout) => (
-	<hgroup className="header-group">
-		<h2 className="header-name">Hi, {currentUser.username}!</h2>
-		<button className="header-button" onClick={logout}>Log Out</button>
-	</hgroup>
-);
+    this.showHeader = this.showHeader.bind(this);
+    this.checkLogIn = this.checkLogIn.bind(this);
+  }
 
-const NavBar = ({ currentUser, logout }) => {
-  if (currentUser) {
-    return personalGreeting(currentUser, logout);
-  } else {
-    return sessionLinks();
+  showHeader(){
+    return (
+    	<hgroup className="nav-bar-group group">
+    		<button className="header-logout-button" onClick={this.props.logout}>Log Out</button>
+        <input className="user-search" type="search" placeholder="search"/>
+    	</hgroup>
+    );
+  }
+
+  checkLogIn() {
+    if (this.props.currentUser) {
+      return this.showHeader();
+    } else {
+      return ;
+    }
+  }
+
+  render(){
+    return (
+      <div className="nav-container">
+        { this.checkLogIn() }
+      </div>
+    );
   }
 }
+
 
 export default NavBar;
