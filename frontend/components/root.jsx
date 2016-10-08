@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import App from './app';
 import SessionFormContainer from './session_form/session_form_container';
 import PostIndexContainer from './post/post_index_container';
-import GreetingContainer from './greeting/greeting_container';
+import NavBar from './nav_bar/nav_bar_container';
 
 
 const Root = ({ store }) => {
