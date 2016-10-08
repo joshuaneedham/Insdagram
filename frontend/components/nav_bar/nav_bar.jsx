@@ -14,6 +14,7 @@ class NavBar extends React.Component {
     	<div className="icons-group">
         <img
           src={insdagramAssets.addPhotoImage}
+          onClick={() => hashHistory.push("/postForm")}
           className="icon" />
         <img
           src={insdagramAssets.userViewImage}
