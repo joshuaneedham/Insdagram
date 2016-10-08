@@ -54,29 +54,36 @@ class PostForm extends React.Component{
     return (
         <div className="new-post-container">
           <div className="new-post-form">
-            <h3 className="new-post-title">Create A Post!</h3>
+            <h3 className="new-post-title">Upload</h3>
 
             <form onSubmit={this.handleSubmit}>
 
-              <input type="text"
+              <div className="choose-file-holder">
+                <input type="file"
+                  onChange={this.updateFile}
+                  className="post-field choose-file-button"/>
+                <div className="choose-file-mask">Choose File
+                </div>
+              </div>
+
+              <img className="upload" src={this.state.imageURL} />
+
+              <textarea
                 placeholder="caption"
                 value={this.state.caption}
                 onChange={this.update("caption")}
-                className="post-field"/>
-
-              <input type="file"
-                onChange={this.updateFile}
-                className="post-field"/>
-
-              <img src={this.state.imageURL} />
+                className="post-field caption-field"/>
 
               <div className="button-holder">
-                <input type="submit" value="Create Post" className="new-post-button"/>
+                <input type="submit"
+                  value="Post"
+                  className="new-post-button create-post-button"/>
               </div>
             </form>
 
             <div className="button-holder">
-              <button className="new-post-button" onClick={this.navigateToSearch}>Cancel</button>
+              <button className="new-post-button cancel-button"
+                onClick={this.navigateToSearch}>Cancel</button>
             </div>
           </div>
         </div>
