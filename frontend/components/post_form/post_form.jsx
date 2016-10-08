@@ -26,6 +26,7 @@ class PostForm extends React.Component{
     return e => this.setState({[property]: e.target.value});
   }
 
+// problem area
   updateFile(e) {
     let file = e.currentTarget.files[0];
     let fileReader = new FileReader();
