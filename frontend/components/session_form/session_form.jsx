@@ -107,45 +107,47 @@ class SessionForm extends React.Component {
 
 	render() {
 		return (
-  			<div className="entry-form-container group">
-          <img className="login-image" src={insdagramAssets.loginImage}></img>
+        <div className="page">
+    			<div className="entry-form-container group">
+            <img className="login-image" src={insdagramAssets.loginImage}></img>
 
-          <div className="login-right-side">
-    				<form onSubmit={this.handleSubmit} className="entry-form-box">
-    					<div className="entry-form">
-                <h1>Insdagram</h1>
+            <div className="login-right-side">
+      				<form onSubmit={this.handleSubmit} className="entry-form-box">
+      					<div className="entry-form">
+                  <h1>Insdagram</h1>
 
-                { this.signUpFormText() }
-                { this.signUpFormField() }
+                  { this.signUpFormText() }
+                  { this.signUpFormField() }
 
-    						<input type="text"
-    							value={this.state.username}
-    							onChange={this.update("username")}
-                  placeholder="Username"
-    							className="entry-input" />
+      						<input type="text"
+      							value={this.state.username}
+      							onChange={this.update("username")}
+                    placeholder="Username"
+      							className="entry-input" />
 
-    						<input type="password"
-    							value={this.state.password}
-    							onChange={this.update("password")}
-                  placeholder="Password"
-    							className="entry-input" />
+      						<input type="password"
+      							value={this.state.password}
+      							onChange={this.update("password")}
+                    placeholder="Password"
+      							className="entry-input" />
 
-    						<input
-                  type="submit"
-                  value={this.submitButtonText()}
-                  className="login-button submit-button" />
+      						<input
+                    type="submit"
+                    value={this.submitButtonText()}
+                    className="login-button submit-button" />
 
-                <br/>
-                { this.guestLoginButton() }
-                { this.renderErrors() }
-    					</div>
-  				  </form>
-          </div>
+                  <br/>
+                  { this.guestLoginButton() }
+                  { this.renderErrors() }
+      					</div>
+    				  </form>
+            </div>
 
-          <div className="toggle-form">
-            {this.toggleFormText()} {this.navLink()}
-          </div>
-		    </div>
+            <div className="toggle-form">
+              {this.toggleFormText()} {this.navLink()}
+            </div>
+  		    </div>
+        </div>
 		);
 	}
 }
