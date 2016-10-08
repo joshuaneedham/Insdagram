@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router';
+const hashHistory = require('react-router').hashHistory;
 
 class PostForm extends React.Component{
   constructor(props){
@@ -7,10 +8,14 @@ class PostForm extends React.Component{
     // this.coords = {lat: props.lat, lng: props.lng};
     this.state = {
       caption: "",
-      picture_url: "",
+      imageFile: "",
+      imageUrl: ""
     };
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.navigateToSearch = this.navigateToSearch.bind(this);
+    this.update = this.update.bind(this);
+    this.updateFile = this.updateFile.bind(this);
   }
 
   navigateToSearch() {
@@ -21,13 +26,28 @@ class PostForm extends React.Component{
     return e => this.setState({[property]: e.target.value});
   }
 
+  updateFile(e) {
+    let file = e.currentTarget.files[0];
+    let fileReader = new FileReader();
+    fileReader.onloadend = function () {
+      this.setState({ imageFile: file, imageUrl: fileReader.result });
+    }.bind(this);
+
+    if (file){
+      fileReader.readAsDataURL(file);
+    }
+  }
+
   handleSubmit(e){
     e.preventDefault();
-    const post = Object.assign({}, this.state);
-    // const post = Object.assign({}, this.state, this.coords);
-    this.props.createPost({post});
-    this.navigateToSearch();
+    let formData = new FormData();
+    formData.append("post[caption]", this.state.caption);
+    formData.append("post[image]", this.state.imageFile);
+    this.props.createPost(formData, this.navigateToSearch);
   }
+  // const post = Object.assign({}, this.state);
+  // // const post = Object.assign({}, this.state, this.coords);
+  // this.props.createPost({post});
 
   render() {
     return (
@@ -36,13 +56,18 @@ class PostForm extends React.Component{
             <h3 className="new-post-title">Create A Post!</h3>
 
             <form onSubmit={this.handleSubmit}>
-              <label className="post-field">Caption</label>
-              <input type="text" value={this.state.caption}
-                onChange={this.update("caption")} className="post-field"/>
 
-              <label className="post-field">Picture URL</label>
-              <input type="text" value={this.state.picture_url}
-                onChange={this.update("picture_url")} className="post-field"/>
+              <input type="text"
+                placeholder="caption"
+                value={this.state.caption}
+                onChange={this.update("caption")}
+                className="post-field"/>
+
+              <input type="file"
+                onChange={this.updateFile}
+                className="post-field"/>
+
+              <img src={this.state.imageURL} />
 
               <div className="button-holder">
                 <input type="submit" value="Create Post" className="new-post-button"/>

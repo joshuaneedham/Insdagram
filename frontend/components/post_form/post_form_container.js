@@ -3,12 +3,11 @@ import PostForm from './post_form';
 import { createPost } from '../../actions/post_actions';
 
 const mapStateToProps = (state, ownProps) => ({
-  // lat: ownProps.location.query.lat,
-  // lng: ownProps.location.query.lng
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({
-  createPost: post => dispatch(createPost(post))
+  createPost: (post, success) => dispatch(createPost(post, success))
 });
 
 export default connect(
