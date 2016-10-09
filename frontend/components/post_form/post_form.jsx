@@ -5,7 +5,6 @@ const hashHistory = require('react-router').hashHistory;
 class PostForm extends React.Component{
   constructor(props){
     super(props);
-    // this.coords = {lat: props.lat, lng: props.lng};
     this.state = {
       caption: "",
       imageFile: "",
@@ -26,7 +25,6 @@ class PostForm extends React.Component{
     return e => this.setState({[property]: e.target.value});
   }
 
-// problem area
   updateFile(e) {
     let file = e.currentTarget.files[0];
     let fileReader = new FileReader();
@@ -46,9 +44,6 @@ class PostForm extends React.Component{
     formData.append("post[image]", this.state.imageFile);
     this.props.createPost(formData, this.navigateToSearch);
   }
-  // const post = Object.assign({}, this.state);
-  // // const post = Object.assign({}, this.state, this.coords);
-  // this.props.createPost({post});
 
   render() {
     return (
