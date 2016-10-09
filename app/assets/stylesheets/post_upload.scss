@@ -32,6 +32,7 @@
   border-radius: 4px;
   padding: 10px;
   background: #3897f0;
+  cursor: pointer;
 }
 
 .choose-file-mask {
@@ -54,7 +55,10 @@
   height: 100%;
   width: 100%;
   opacity: 0;
+  font-size: 0;
+  cursor: pointer;
 }
+
 
 .new-post-button {
   display: block;
@@ -69,6 +73,7 @@
   padding: 10px;
   font-family: 'Montserrat', sans-serif;
   margin: auto;
+  cursor: pointer;
 }
 
 .create-post-button {
