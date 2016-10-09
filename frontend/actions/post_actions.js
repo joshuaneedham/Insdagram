@@ -23,7 +23,8 @@ export const receivePost = post => ({
   post
 });
 
-export const createPost = post => ({
+export const createPost = (post, success) => ({
   type: CREATE_POST,
+  success,
   post
 });
