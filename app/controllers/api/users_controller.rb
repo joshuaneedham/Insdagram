@@ -10,6 +10,10 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def show
+    @users = User.find(paramsp[:id])
+  end
+
   def user_params
     params.require(:user).permit(:username, :full_name, :password)
   end
