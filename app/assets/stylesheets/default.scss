@@ -12,6 +12,10 @@ html, div, text, body, h1 {
   font-family: 'Open Sans', sans-serif;
 }
 
+img {
+  max-width: 600px;
+}
+
 .group {
   display: block;
   clear: both;

@@ -12,8 +12,7 @@
 
 .caption-field {
   display: block;
-  margin: 0 auto;
-  margin-bottom: 20px;
+  margin: 20px auto;
   border-radius: 4px;
   outline: 0;
   border: 1px solid #dbdbdb;
@@ -33,6 +32,7 @@
   padding: 10px;
   background: #3897f0;
   cursor: pointer;
+  margin-bottom: 20px;
 }
 
 .choose-file-mask {

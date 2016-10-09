@@ -61,7 +61,7 @@ class PostForm extends React.Component{
                 </div>
               </div>
 
-              <img className="upload" src={this.state.imageURL} />
+              <img className="upload" src={this.state.imageUrl} />
 
               <textarea
                 placeholder="caption"
