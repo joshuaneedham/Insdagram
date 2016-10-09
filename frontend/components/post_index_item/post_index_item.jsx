@@ -65,8 +65,6 @@ class PostIndexItem extends React.Component {
           </div>
         </div>
         <img className="post-picture"
-          height="600"
-          width="600"
           src={this.props.post.image_url} />
         <div className="post-index-item-footer">
           <div className="caption-holder">
