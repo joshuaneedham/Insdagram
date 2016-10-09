@@ -1,30 +1,26 @@
 import React from 'react';
+import PostIndexItem from '../post_index_item/post_index_item';
 
 class PostIndex extends React.Component {
   constructor(props) {
     super(props);
-
-    this.images = this.images.bind(this);
   }
 
   componentDidMount() {
     this.props.requestPosts();
   }
 
-  images() {
-    return this.props.posts.map( post => (
-      <img className="posts" src={post.image_url} key={post.id} height="600" width="600"/>
-    ));
-  }
-
   render(){
+    const posts = this.props.posts.map( post =>
+      <PostIndexItem post={post} key={post.id} />
+    );
+
     return (
-      <div>
-        {this.images()}
+      <div className="post-index-items">
+         { posts }
       </div>
     );
   }
 }
 
-// <PostIndexItem post={post} key={post.id} />
 export default PostIndex;
