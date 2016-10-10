@@ -1,7 +1,7 @@
 import { fetchUser } from '../util/user_api_util';
 import { REQUEST_USER } from '../actions/user_actions';
 
-const UsersMiddleware = ({getState, dispatch}) => next => action => {
+const UserMiddleware = ({getState, dispatch}) => next => action => {
   const userSuccess = data => ( dispatch(receivePost(data)))
 
   switch(action.type){
@@ -13,4 +13,4 @@ const UsersMiddleware = ({getState, dispatch}) => next => action => {
   }
 }
 
-export default UsersMiddleware;
+export default UserMiddleware;

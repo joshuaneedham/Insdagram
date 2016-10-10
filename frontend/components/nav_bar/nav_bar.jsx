@@ -17,7 +17,8 @@ class NavBar extends React.Component {
           className="icon" />
         <img
           src={insdagramAssets.userViewImage}
-          className="icon" />
+          className="icon"
+          onClick={() => hashHistory.push("/userShow")} />
     		<img
           src={insdagramAssets.logoutButtonImage}
           className="header-logout-button icon"
