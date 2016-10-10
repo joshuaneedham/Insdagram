@@ -34,6 +34,11 @@ import Root from './components/root';
 // window.createPost = createPost;
 // // testing Post Actions from the console
 
+// import { requestUser } from './actions/post_actions';
+// window.store = configureStore();
+// window.requestUser = requestUser;
+
+
 document.addEventListener('DOMContentLoaded', () => {
   let store;
   if (window.currentUser) {

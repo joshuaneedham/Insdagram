@@ -6,7 +6,6 @@ class NavBar extends React.Component {
     super(props);
 
     this.showHeader = this.showHeader.bind(this);
-    this.checkLogIn = this.checkLogIn.bind(this);
   }
 
   showHeader(){
@@ -27,10 +26,8 @@ class NavBar extends React.Component {
     );
   }
 
-  checkLogIn() {
-    if (this.props.currentUser) {
-      return this.showHeader();
-    } else {
+  componentDidUpdate(){
+    if (!this.props.currentUser) {
       hashHistory.push("/login");
     }
   }
@@ -42,7 +39,7 @@ class NavBar extends React.Component {
           src={insdagramAssets.logoIcon}
           onClick={() => hashHistory.push("/")}/>
         <input className="user-search" type="search" placeholder="Search" />
-        { this.checkLogIn() }
+        { this.showHeader() }
       </div>
     );
   }
