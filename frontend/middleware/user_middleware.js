@@ -1,12 +1,12 @@
 import { fetchUser } from '../util/user_api_util';
-import { REQUEST_USER } from '../actions/user_actions';
+import { REQUEST_USER, receiveUser } from '../actions/user_actions';
 
 const UserMiddleware = ({getState, dispatch}) => next => action => {
-  const userSuccess = data => ( dispatch(receivePost(data)))
+  const userSuccess = data => ( dispatch(receiveUser(data)))
 
   switch(action.type){
     case REQUEST_USER:
-      fetchUser(userSuccess);
+      fetchUser(action.id, userSuccess, () => console.log("error"));
       break;
     default:
       return next(action);

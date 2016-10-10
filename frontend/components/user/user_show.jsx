@@ -6,7 +6,6 @@ class UserShow extends React.Component {
   }
 
   render(){
-    this.props.requestU
     return(
       <div>test</div>
     );

@@ -1,12 +1,13 @@
 import { connect } from 'react-redux';
 import UserShow from './user_show';
+import { requestUser } from '../../actions/user_actions';
 
 const mapStateToProps = state => ({
   user: state.user
 });
 
 const mapDispatchToProps = dispatch => ({
-  requestUser: (id, success) => dispatch(requestUser(id, success))
+  requestUser: id => dispatch(requestUser(id))
 });
 
 export default connect(
