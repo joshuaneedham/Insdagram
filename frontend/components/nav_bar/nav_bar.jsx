@@ -6,21 +6,24 @@ class NavBar extends React.Component {
     super(props);
 
     this.showHeader = this.showHeader.bind(this);
+    this.handleUserShow = this.handleUserShow.bind(this);
+  }
+
+  handleUserShow(e) {
+    this.props.requestUser(this.props.currentUser.id);
+    hashHistory.push(`/user/${this.props.currentUser.id}`);
   }
 
   showHeader(){
     return (
     	<div className="icons-group">
-        <img
-          src={insdagramAssets.addPhotoImage}
+        <img src={insdagramAssets.addPhotoImage}
           onClick={() => hashHistory.push("/postForm")}
           className="icon" />
-        <img
-          src={insdagramAssets.userViewImage}
+        <img src={insdagramAssets.userViewImage}
           className="icon"
-          onClick={() => hashHistory.push("/userShow")} />
-    		<img
-          src={insdagramAssets.logoutButtonImage}
+          onClick={this.handleUserShow} />
+    		<img src={insdagramAssets.logoutButtonImage}
           className="header-logout-button icon"
           onClick={this.props.logout} />
       </div>
@@ -45,6 +48,5 @@ class NavBar extends React.Component {
     );
   }
 }
-
 
 export default NavBar;
