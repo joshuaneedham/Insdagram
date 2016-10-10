@@ -11,7 +11,7 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @users = User.find(paramsp[:id])
+    @users = User.find(params[:id])
   end
 
   def user_params
