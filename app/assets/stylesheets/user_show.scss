@@ -1,0 +1,58 @@
+.user-show-container {
+  margin-top: 60px;
+}
+
+.user-show-header {
+  display: flex;
+  justify-content: center;
+}
+
+.user-show-body {
+  display: flex;
+  margin: 47px auto;
+  max-width: 980px;
+  flex-wrap: wrap;
+}
+
+.user-show-image {
+  display: block;
+  width: 294px;
+  height: 294px;
+  margin: 14px;
+}
+
+.user-show-information {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.username-header {
+  display: block;
+  font-weight: 300;
+  font-size: 32px;
+  color: black;
+}
+
+.user-stats {
+  display: block;
+  color: black;
+}
+
+.posts-bold {
+  float: left;
+  font-weight: bold;
+}
+
+.posts-regular {
+  display: block;
+  float: left;
+  margin-left: 4px;
+}
+
+.user-full-name {
+  display: block;
+  color: black;
+  margin-top: 5px;
+}
