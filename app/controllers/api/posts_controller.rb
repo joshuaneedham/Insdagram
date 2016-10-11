@@ -17,16 +17,23 @@ class Api::PostsController < ApplicationController
   end
 
   def like
-    @like = Like.new(like_params)
-    @like.user_id = current_user.id
-    @like.save
+    @post = Post.find(params[:id])
+    @like = @post.likes.create!(user_id: current_user.id)
+    render :show
+  end
+
+  def unlike
+    @post = post.find(params[:id])
+    like = Like.find_by(user_id: current_user.id, post_id: post.id])
+    # add destroy
+    render :show
   end
 
   def post_params
     params.require(:post).permit(:caption, :image)
   end
 
-  def like_params
-    params.require(:like).permit(:post_id)
-  end
+  # def like_params
+  #   params.require(:like).permit(:post_id)
+  # end
 end

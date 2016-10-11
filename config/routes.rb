@@ -6,8 +6,8 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :posts do
       member do
-        post 'likes'
-        delete 'likes'
+        post 'like'
+        delete 'like'
       end
     end
     resources :comments
