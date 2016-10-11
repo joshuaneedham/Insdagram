@@ -24,7 +24,7 @@ class Api::PostsController < ApplicationController
 
   def unlike
     @post = post.find(params[:id])
-    like = Like.find_by(user_id: current_user.id, post_id: post.id])
+    like = Like.find_by(user_id: current_user.id, post_id: post.id)
     # add destroy
     render :show
   end
