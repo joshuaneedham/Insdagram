@@ -110,6 +110,22 @@
   font-size: 30px;
 }
 
+.caption-username:active {
+  color: #999;
+}
+
+.caption-username:hover {
+  cursor: pointer;
+}
+
+.username-link:active {
+  color: #999;
+}
+
+.username-link:hover {
+  cursor: pointer;
+}
+
 .comment-text-input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   font-size: 14.5px;
   color: #999999;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { hashHistory } from 'react-router';
+import { Link, withRouter, hashHistory } from 'react-router';
 import CommentForm from '../comment_form/comment_form_container';
 
 class PostIndexItem extends React.Component {
@@ -7,6 +7,7 @@ class PostIndexItem extends React.Component {
     super(props);
 
     this.timeSincePost = this.timeSincePost.bind(this);
+    this.navigateUserShow = this.navigateUserShow.bind(this);
   }
 
   timeSincePost(createdAt){
@@ -51,19 +52,26 @@ class PostIndexItem extends React.Component {
     return dateResult;
   }
 
+  navigateUserShow(id) {
+    hashHistory.push(`/user/${id}`);
+  }
+
   render() {
     let username = this.props.post.user.username.concat(" ");
     const commentsRender = this.props.post.comments.map( comment =>
-      <div className="single-comment" key={comment.id}>
+      <div className="single-comment"
+        key={comment.id}>
         <div className="caption-username comment-username">{comment.username}</div>
         <div className="caption-text comment-text">{comment.body}</div>
       </div>
     );
+    // onClick={() => this.navigateUserShow(this.props.post.user_id)}
 
     return(
       <div className="post-index-item">
         <div className="post-index-item-header">
-          <h5 className="username-link">
+          <h5 className="username-link"
+            onClick={() => this.navigateUserShow(this.props.post.user_id)}>
             { username }
           </h5>
           <div className="post-time">
@@ -75,7 +83,10 @@ class PostIndexItem extends React.Component {
         <div className="post-index-item-footer">
           <div className="caption-comment-holder">
             <div className="caption-holder">
-              <div className="caption-username">{ username }</div>
+              <div className="caption-username"
+                onClick={() => this.navigateUserShow(this.props.post.user_id)}>
+                { username }
+              </div>
               <div className="caption-text">{this.props.post.caption}</div>
             </div>
             <div className="comments-render">
