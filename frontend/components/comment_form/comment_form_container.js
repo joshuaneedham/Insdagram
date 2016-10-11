@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
 import CommentForm from './comment_form';
-import { createPost } from '../../actions/comment_actions';
+import { createComment } from '../../actions/comment_actions';
 
 const mapStateToProps = state => {
-  return;
+  return {currentUser: state.session.currentUser};
 };
 
 const mapDispatchToProps = dispatch => ({
-  createComment: () => dispatch(createComment())
+  createComment: (comment) => dispatch(createComment(comment))
 });
 
 export default connect(

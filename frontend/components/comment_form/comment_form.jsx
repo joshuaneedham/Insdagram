@@ -6,6 +6,8 @@ class CommentForm extends React.Component {
 
     this.state = {
       body: "",
+      user_id: this.props.currentUser.id,
+      post_id: this.props.postId
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,8 +21,8 @@ class CommentForm extends React.Component {
   handleSubmit(e){
     e.preventDefault();
 		const comment = this.state;
+    this.setState({body: ""});
 		this.props.createComment({comment});
-    this.setState({comment_text: ""});
   }
 
   render(){
@@ -29,8 +31,8 @@ class CommentForm extends React.Component {
         <input type="text"
           className="comment-text-input"
           placeholder="Add a comment..."
-          value={this.update.body}
-          onChange={this.update("caption")} />
+          value={this.state.body}
+          onChange={this.update("body")} />
 
         <input className="comment-submit" type="submit" value="Comment" />
       </form>

@@ -16,6 +16,10 @@ class Api::PostsController < ApplicationController
     render :show
   end
 
+  def like
+
+  end
+  
   def post_params
     params.require(:post).permit(:caption, :image)
   end

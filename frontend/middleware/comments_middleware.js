@@ -8,7 +8,7 @@ const CommentsMiddleware = ({getState, dispatch}) => next => action => {
   switch(action.type){
     case CREATE_COMMENT:
       createComment(action.comment, postSuccess)
-      break;
+      return next(action);
     default:
       return next(action);
   }

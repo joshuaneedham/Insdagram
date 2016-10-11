@@ -5,12 +5,20 @@ class Api::CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
-    @comment.user_id = current_user.id
-    @comment.save
-    render :show
+
+    if @comment.save
+      render_post_show(@comment)
+    else
+      render json: comment, status: :unprocessable_entity
+    end
+  end
+
+  def render_post_show(comment)
+    @post = comment.post
+    render 'api/posts/show'
   end
 
   def comment_params
-    params.require(:post).permit(:caption, :image)
+    params.require(:comment).permit(:body, :user_id, :post_id)
   end
 end

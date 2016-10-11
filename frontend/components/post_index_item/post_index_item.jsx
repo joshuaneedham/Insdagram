@@ -1,6 +1,6 @@
 import React from 'react';
 import { hashHistory } from 'react-router';
-import CommentForm from '../comment_form/comment_form';
+import CommentForm from '../comment_form/comment_form_container';
 
 class PostIndexItem extends React.Component {
   constructor(props) {
@@ -82,7 +82,7 @@ class PostIndexItem extends React.Component {
               { commentsRender }
             </div>
           </div>
-          <CommentForm />
+          <CommentForm postId={this.props.post.id} />
         </div>
       </div>
     );
