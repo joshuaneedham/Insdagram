@@ -1,5 +1,6 @@
 import React from 'react';
 import { hashHistory } from 'react-router';
+import CommentForm from '../comment_form/comment_form';
 
 class PostIndexItem extends React.Component {
   constructor(props) {
@@ -15,7 +16,6 @@ class PostIndexItem extends React.Component {
     let currentDate = currentTime.getUTCDate();
     let currentMonth = currentTime.getUTCMonth();
     let currentYear = currentTime.getUTCFullYear();
-
 
     let postYear = createdAt.slice(0, 4);
     let postMonth = createdAt.slice(5, 7);
@@ -68,9 +68,11 @@ class PostIndexItem extends React.Component {
           src={this.props.post.image_url} />
         <div className="post-index-item-footer">
           <div className="caption-holder">
-            <div className="caption-username">{ username } </div>
-            <div className="caption-text">{this.props.post.caption}</div>
+              <div className="caption-username">{ username }</div>
+              <div className="caption-text">{this.props.post.caption}</div>
           </div>
+          
+          <CommentForm />
         </div>
       </div>
     );

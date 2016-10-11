@@ -20,7 +20,6 @@
 }
 
 .post-index-item-footer {
-  min-height: 153px;
 }
 
 .username-link {
@@ -61,4 +60,42 @@
 .post-time {
   margin: 20px;
   font-size: 15px;
+}
+
+.comment-form {
+  margin: 23px;
+  padding: 10px;
+  border-top: 1px solid #efefef;
+}
+
+.comment-text-input {
+  width: 480px;
+  font-size: 14.5px;
+  outline: none;
+  border: none;
+}
+
+.comment-submit {
+  display: none;
+}
+
+.comment-text-input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  font-size: 14.5px;
+  color: #999999;
+  text-align: left;
+}
+.comment-text-input::-moz-placeholder { /* Firefox 19+ */
+  font-size: 14.5px;
+  color: #999999;
+  text-align: left;
+}
+.comment-text-input::-ms-input-placeholder { /* IE 10+ */
+  color: #999999;
+  font-size: 14.5px;
+  text-align: left;
+}
+.comment-text-input::-moz-placeholder { /* Firefox 18- */
+  color: #999999;
+  font-size: 14.5px;
+  text-align: left;
 }
