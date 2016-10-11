@@ -54,7 +54,7 @@ class PostIndexItem extends React.Component {
   render() {
     let username = this.props.post.user.username.concat(" ");
     const commentsRender = this.props.post.comments.map( comment =>
-      <div className="single-comment">
+      <div className="single-comment" key={comment.id}>
         <div className="caption-username comment-username">{comment.username}</div>
         <div className="caption-text comment-text">{comment.body}</div>
       </div>
