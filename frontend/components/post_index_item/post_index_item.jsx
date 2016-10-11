@@ -53,6 +53,12 @@ class PostIndexItem extends React.Component {
 
   render() {
     let username = this.props.post.user.username.concat(" ");
+    const commentsRender = this.props.post.comments.map( comment =>
+      <div className="single-comment">
+        <div className="caption-username comment-username">{comment.username}</div>
+        <div className="caption-text comment-text">{comment.body}</div>
+      </div>
+    );
 
     return(
       <div className="post-index-item">
@@ -67,11 +73,15 @@ class PostIndexItem extends React.Component {
         <img className="post-picture"
           src={this.props.post.image_url} />
         <div className="post-index-item-footer">
-          <div className="caption-holder">
+          <div className="caption-comment-holder">
+            <div className="caption-holder">
               <div className="caption-username">{ username }</div>
               <div className="caption-text">{this.props.post.caption}</div>
+            </div>
+            <div className="comments-render">
+              { commentsRender }
+            </div>
           </div>
-          
           <CommentForm />
         </div>
       </div>

@@ -7,4 +7,5 @@ end
 
 json.comments post.comments.each do |comment|
   json.body comment.body
+  json.username comment.user.username
 end
