@@ -17,10 +17,16 @@ class Api::PostsController < ApplicationController
   end
 
   def like
-
+    @like = Like.new(like_params)
+    @like.user_id = current_user.id
+    @like.save
   end
-  
+
   def post_params
     params.require(:post).permit(:caption, :image)
+  end
+
+  def like_params
+    params.require(:like).permit(:post_id)
   end
 end

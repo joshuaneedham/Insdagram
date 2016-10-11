@@ -5,7 +5,10 @@ Rails.application.routes.draw do
     resources :users
     resource :session, only: [:create, :destroy]
     resources :posts do
-      #member routes rails
+      member do
+        post 'likes'
+        delete 'likes'
+      end
     end
     resources :comments
   end
