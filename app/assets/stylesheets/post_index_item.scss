@@ -7,9 +7,6 @@
 }
 
 .post-picture {
-  margin: 0;
-  padding: 0;
-  max-width: 600px;
 }
 
 .post-index-item-header {
@@ -124,6 +121,15 @@
 
 .username-link:hover {
   cursor: pointer;
+}
+
+.photo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  max-width: 600px;
 }
 
 .comment-text-input::-webkit-input-placeholder { /* Chrome/Opera/Safari */

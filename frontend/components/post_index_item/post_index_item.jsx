@@ -78,8 +78,10 @@ class PostIndexItem extends React.Component {
             {this.timeSincePost(this.props.post.created_at)}
           </div>
         </div>
-        <img className="post-picture"
-          src={this.props.post.image_url} />
+        <div className="photo-container">
+          <img className="post-picture"
+            src={this.props.post.image_url} />
+        </div>
         <div className="post-index-item-footer">
           <div className="caption-comment-holder">
             <div className="caption-holder">
