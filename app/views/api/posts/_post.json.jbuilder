@@ -5,8 +5,9 @@ json.user do
   json.username post.user.username
 end
 
-json.comments post.comments.each do |comment|
+json.comments post.comments.order(created_at: :asc).each do |comment|
   json.body comment.body
   json.username comment.user.username
   json.id comment.id
+  json.created_at comment.created_at
 end

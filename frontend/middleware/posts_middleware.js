@@ -15,7 +15,7 @@ const PostsMiddleware = ({getState, dispatch}) => next => action => {
     action.success();
     return dispatch(receivePost(data));
   }
-
+  
   switch(action.type){
     case REQUEST_POSTS:
       fetchPosts(postsSuccess);
