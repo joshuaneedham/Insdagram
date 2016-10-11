@@ -82,7 +82,12 @@ class PostIndexItem extends React.Component {
               { commentsRender }
             </div>
           </div>
-          <CommentForm postId={this.props.post.id} />
+          <div className="like-comment-render">
+            <div className="material-icons">
+              <i className="material-icons heart-icon">favorite_border</i>
+            </div>
+            <CommentForm postId={this.props.post.id} />
+          </div>
         </div>
       </div>
     );

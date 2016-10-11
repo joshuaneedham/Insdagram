@@ -58,9 +58,12 @@
   font-size: 15px;
 }
 
-.comment-form {
+.like-comment-render {
+  display: flex;
+  flex-flow: flex-start;
+  align-items: center;
   margin: 23px;
-  padding: 10px;
+  padding-top: 20px;
   border-top: 1px solid #efefef;
 }
 
@@ -69,6 +72,7 @@
   font-size: 14px;
   outline: none;
   border: none;
+  margin-left: 12px;
 }
 
 .caption-holder {
@@ -90,6 +94,7 @@
 .comments-render {
   display: flex;
   flex-direction: column;
+  margin-bottom: 4px;
 }
 
 .comment-username {
@@ -99,6 +104,10 @@
 .comment-text {
   margin-top: 7px;
   margin-bottom: 1px;
+}
+
+.material-icons.heart-icon {
+  font-size: 30px;
 }
 
 .comment-text-input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
