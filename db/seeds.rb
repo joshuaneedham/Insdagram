@@ -17,7 +17,7 @@ user2 = User.create!(full_name: "David DiPanfilo", username: "ddipanfilo", passw
 user3 = User.create!(full_name: "John Doe", username: "jdoeee", password: "testing323")
 user4 = User.create!(full_name: "Jeff Seltzer", username: "seltz", password: "secrett")
 user5 = User.create!(full_name: "Jerry", username: "mrjerry", password: "testtt323")
-user6 = User.create!(full_name: "Drake", username: "champpapi", password: "drizzy")
+drake = User.create!(full_name: "Aubrey Graham", username: "champpapi", password: "drizzy")
 user7 = User.create!(full_name: "Ben Jamin", username: "benny9", password: "testing323")
 user8 = User.create!(full_name: "Mike Mike", username: "mike", password: "teeest")
 user9 = User.create!(full_name: "John Smith", username: "jsmith", password: "pworddd")
@@ -29,6 +29,7 @@ file3 = File.open("app/assets/images/Lake.jpg")
 file4 = File.open("app/assets/images/Manhattan.jpg")
 file5 = File.open("app/assets/images/Montreal.jpg")
 file6 = File.open("app/assets/images/Mountains.jpg")
+young_drake_picture = File.open("app/assets/images/Drake-1.jpg")
 
 post1 = Post.create!(caption: "NYC", user_id: user1.id, image: file1)
 post2 = Post.create!(caption: "Grand Central", user_id: user1.id, image: file2)
@@ -36,6 +37,10 @@ post3 = Post.create!(caption: "lake view", user_id: user1.id, image: file3)
 post4 = Post.create!(caption: "Manhattan", user_id: user2.id, image: file4)
 post5 = Post.create!(caption: "Montreal", user_id: user2.id, image: file5)
 post6 = Post.create!(caption: "mountains", user_id: user2.id, image: file6)
+post7 = Post.create!(caption: "I been had these visions
+  Of the life I'm livin' since I was Jimmy
+  All I had to do was just go and get it", user_id: drake.id, image: young_drake_picture
+)
 
 like1 = Like.create!(user_id: user1.id, post_id: post1.id)
 like2 = Like.create!(user_id: user1.id, post_id: post2.id)

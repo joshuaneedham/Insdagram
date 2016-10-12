@@ -98,13 +98,11 @@ class PostIndexItem extends React.Component {
                 { this.props.post.likes.length }
                 { this.likeText() }
               </div>
-              <div className="username-and-caption">
-                <div className="caption-username"
-                  onClick={() => this.navigateUserShow(this.props.post.user_id)}>
-                  { username }
-                </div>
-                <div className="caption-text">{this.props.post.caption}</div>
-              </div>
+              <span className="caption-username"
+                onClick={() => this.navigateUserShow(this.props.post.user_id)}>
+                { username }
+              </span>
+              <span className="caption-text"> {this.props.post.caption}</span>
             </div>
             <div className="comments-render">
               { commentsRender }
