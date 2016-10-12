@@ -103,8 +103,13 @@
   margin-bottom: 1px;
 }
 
-.material-icons.heart-icon {
+.material-icons.unliked-heart-icon {
   font-size: 30px;
+}
+
+.material-icons.liked-heart-icon {
+  font-size: 30px;
+  color: #ed4956;
 }
 
 .caption-username:active {

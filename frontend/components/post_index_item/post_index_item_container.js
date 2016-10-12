@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import PostIndexItem from './post_index_item';
-import { createLike } from '../../actions/like_actions';
+import { createLike, destroyLike } from '../../actions/like_actions';
 
 const mapStateToProps = (state, ownProps) => ({
   currentUser: state.session.currentUser,
@@ -8,7 +8,8 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  createLike: post_id => dispatch(createLike(post_id))
+  createLike: postId => dispatch(createLike(postId)),
+  destroyLike: postId => dispatch(destroyLike(postId))
 });
 
 export default connect(

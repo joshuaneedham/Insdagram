@@ -9,7 +9,11 @@ class PostIndexItem extends React.Component {
     this.timeSincePost = this.timeSincePost.bind(this);
     this.navigateUserShow = this.navigateUserShow.bind(this);
     this.likeText = this.likeText.bind(this);
-    this.addLike = this.addLike.bind(this);
+    this.likeAction = this.likeAction.bind(this);
+    this.likeCssClass = this.likeCssClass.bind(this);
+    this.likeIcon = this.likeIcon.bind(this);
+    this.likeStatus = this.likeStatus.bind(this);
+    this.likeTransition = this.likeTransition.bind(this);
   }
 
   timeSincePost(createdAt){
@@ -66,10 +70,43 @@ class PostIndexItem extends React.Component {
     }
   }
 
-  addLike(){
-    const post_id = this.props.post.id;
+  likeStatus(){
+    for (var key in this.props.post.likes) {
+      if (this.props.post.likes[key].user_id === this.props.currentUser.id) {
+        return true;
+      }
+    }
+    return false;
+  }
 
-    this.props.createLike(post_id);
+  likeAction(){
+    const postId = this.props.post.id;
+
+    if (this.likeStatus()) {
+      this.props.destroyLike(postId);
+    } else {
+      this.props.createLike(postId);
+    }
+  }
+
+  likeCssClass(){
+    if (this.likeStatus()) {
+      return "material-icons liked-heart-icon";
+    } else {
+      return "material-icons unliked-heart-icon";
+    }
+  }
+
+  likeIcon(){
+    if (this.likeStatus()) {
+      return "favorite";
+    } else {
+      return "favorite_border";
+    }
+  }
+
+  likeTransition(){
+
   }
 
   render() {
@@ -96,6 +133,7 @@ class PostIndexItem extends React.Component {
         </div>
         <div className="photo-container">
           <img className="post-picture"
+            onDoubleClick={this.likeAction}
             src={this.props.post.image_url} />
         </div>
         <div className="post-index-item-footer">
@@ -116,8 +154,8 @@ class PostIndexItem extends React.Component {
             </div>
           </div>
           <div className="like-comment-render">
-            <div className="material-icons" onClick={this.addLike}>
-              <i className="material-icons heart-icon">favorite_border</i>
+            <div className="material-icons" onClick={this.likeAction}>
+              <i className={this.likeCssClass()}>{this.likeIcon()}</i>
             </div>
             <CommentForm postId={this.props.post.id} />
           </div>
