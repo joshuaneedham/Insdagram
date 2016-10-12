@@ -8,6 +8,7 @@ class PostIndexItem extends React.Component {
 
     this.timeSincePost = this.timeSincePost.bind(this);
     this.navigateUserShow = this.navigateUserShow.bind(this);
+    this.likeText = this.likeText.bind(this);
   }
 
   timeSincePost(createdAt){
@@ -56,6 +57,14 @@ class PostIndexItem extends React.Component {
     hashHistory.push(`/user/${id}`);
   }
 
+  likeText(){
+    if (this.props.post.likes.length === 1) {
+      return <span> like</span>;
+    } else {
+      return <span> likes</span>;
+    }
+  }
+
   render() {
     let username = this.props.post.user.username.concat(" ");
     const commentsRender = this.props.post.comments.map( comment =>
@@ -85,11 +94,17 @@ class PostIndexItem extends React.Component {
         <div className="post-index-item-footer">
           <div className="caption-comment-holder">
             <div className="caption-holder">
-              <div className="caption-username"
-                onClick={() => this.navigateUserShow(this.props.post.user_id)}>
-                { username }
+              <div className="like-count">
+                { this.props.post.likes.length }
+                { this.likeText() }
               </div>
-              <div className="caption-text">{this.props.post.caption}</div>
+              <div className="username-and-caption">
+                <div className="caption-username"
+                  onClick={() => this.navigateUserShow(this.props.post.user_id)}>
+                  { username }
+                </div>
+                <div className="caption-text">{this.props.post.caption}</div>
+              </div>
             </div>
             <div className="comments-render">
               { commentsRender }

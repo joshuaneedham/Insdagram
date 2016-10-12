@@ -72,7 +72,7 @@
   margin-left: 12px;
 }
 
-.caption-holder {
+.username-and-caption {
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
@@ -130,6 +130,15 @@
   margin: 0;
   padding: 0;
   max-width: 600px;
+}
+
+.like-count {
+  color: black;
+  font-family: 'open-sans', sans-serif;
+  font-weight: 600;
+  // 'Montserrat',
+  font-size: 14.5px;
+  margin-bottom: 12px;
 }
 
 .comment-text-input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
