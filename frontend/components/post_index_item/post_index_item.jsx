@@ -89,6 +89,10 @@ class PostIndexItem extends React.Component {
     }
   }
 
+  oneWayLikeAction(){
+    
+  }
+
   likeCssClass(){
     if (this.likeStatus()) {
       return "material-icons liked-heart-icon";

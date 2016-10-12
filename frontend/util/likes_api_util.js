@@ -9,7 +9,7 @@ export const createLike = ( postId, success) => {
 export const destroyLike = ( postId, success) => {
   $.ajax({
     method: 'DELETE',
-    url: `api/posts/${postId}/like`,
+    url: `api/posts/${postId}/unlike`,
     success
   });
 };

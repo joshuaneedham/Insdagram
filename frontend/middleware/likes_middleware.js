@@ -5,6 +5,7 @@ import { receivePost } from '../actions/post_actions';
 const LikesMiddleware = ({getState, dispatch}) => next => action => {
 
   const postSuccess = data => ( dispatch(receivePost(data)));
+
   switch(action.type){
     case CREATE_LIKE:
       createLike(action.postId, postSuccess)

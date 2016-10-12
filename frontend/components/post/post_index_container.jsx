@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import PostIndex from './post_index';
 import { requestPosts } from '../../actions/post_actions';
-import { createLike } from '../../actions/like_actions';
+import { createLike, destroyLike } from '../../actions/like_actions';
 
 const asArray = (obj) => Object.keys(obj).map(key => obj[key]);
 
@@ -14,7 +14,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   requestPosts: () => dispatch(requestPosts()),
-  createLike: like => dispatch(createLike(like))
+  createLike: postId => dispatch(createLike(postId)),
+  destroyLike: postId => dispatch(destroyLike(postId))
 });
 
 export default connect(

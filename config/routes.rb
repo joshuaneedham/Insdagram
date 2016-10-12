@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :posts do
       member do
         post 'like'
-        delete 'like'
+        delete 'unlike'
       end
     end
     resources :comments

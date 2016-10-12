@@ -1,6 +1,6 @@
 import React from 'react';
-import PostIndexItem from '../post_index_item/post_index_item';
-// import PostIndexItemContainer from '../post_index_item/post_index_item_container';
+import PostIndexItem from '../post_index_item/post_index_item_container';
+
 
 class PostIndex extends React.Component {
   constructor(props) {
@@ -16,7 +16,6 @@ class PostIndex extends React.Component {
       <PostIndexItem post={post}
         key={post.id}
         currentUser={this.props.currentUser}
-        createLike={this.props.createLike}
         />
     );
 

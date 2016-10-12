@@ -30,17 +30,16 @@ class Api::PostsController < ApplicationController
   end
 
   def unlike
-    @post = post.find(params[:id])
-    like = Like.find_by(user_id: current_user.id, post_id: post.id)
-    like.destroy
-    render :show
+    @post = Post.find(params[:id])
+    like = Like.find_by(user_id: current_user.id, post_id: @post.id)
+    if like.destroy
+      render :show
+    else
+      render ({ json: ["cannot unlike post twice"], status: 422 })
+    end
   end
 
   def post_params
     params.require(:post).permit(:caption, :image)
   end
-
-  # def like_params
-  #   params.require(:like).permit(:post_id)
-  # end
 end
