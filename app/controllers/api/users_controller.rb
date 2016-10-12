@@ -15,6 +15,26 @@ class Api::UsersController < ApplicationController
     render :show
   end
 
+  def follow
+    @user = User.find(params[:id])
+    follow = @user.following_user.new(follower_id: current_user.id)
+    if follow.save
+      render :show
+    else
+      render({ json: ["user already followed"], status: 422 })
+    end
+  end
+
+  def unfollow
+    @user = User.find(params[:id])
+    follow = Follow.find_by(followed_id: current_user.id, followed_id: @user.id)
+    if follow.destroy
+      render :show
+    else
+      render({ json: ["user already unfollowed"], status: 422 })
+    end
+  end
+
   def user_params
     params.require(:user).permit(:username, :full_name, :password)
   end

@@ -2,7 +2,12 @@ Rails.application.routes.draw do
   root 'static_pages#root'
 
   namespace :api, defaults: { format: :json } do
-    resources :users
+    resources :users do
+      member do
+        post 'follow'
+        delete 'unfollow'
+      end
+    end
     resource :session, only: [:create, :destroy]
     resources :posts do
       member do
