@@ -10,7 +10,9 @@
 #
 
 class Follow < ActiveRecord::Base
-  belongs_to :following_user,
+  validates_uniqueness_of :followed_id, :scope => :follower_id
+
+  belongs_to :follower_user,
     class_name: "User",
     foreign_key: :follower_id
 

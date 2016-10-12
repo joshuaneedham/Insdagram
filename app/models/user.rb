@@ -25,21 +25,21 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :likes
 
-  has_many :followeds,
-    class_name: "Follow",
-    foreign_key: :follower_id
+  has_many :followings,
+  class_name: "Follow",
+  foreign_key: :follower_id
 
   has_many :following_users,
-    through: :followeds,
+    through: :followings,
     source: :followed_user
 
-  has_many :followings,
+  has_many :followers,
     class_name: "Follow",
     foreign_key: :followed_id
 
-  has_many :followed_users,
-    through: :followings,
-    source: :following_user
+  has_many :follower_users,
+    through: :followers,
+    source: :follower_users
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
