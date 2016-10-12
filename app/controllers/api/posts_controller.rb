@@ -21,7 +21,8 @@ class Api::PostsController < ApplicationController
 
   def like
     @post = Post.find(params[:id])
-    if @like = @post.likes.create(user_id: current_user.id)
+    like = @post.likes.new(user_id: current_user.id)
+    if like.save
       render :show
     else
       render({ json: ["cannot like post twice"], status: 422 })
@@ -31,7 +32,7 @@ class Api::PostsController < ApplicationController
   def unlike
     @post = post.find(params[:id])
     like = Like.find_by(user_id: current_user.id, post_id: post.id)
-    # add destroy
+    like.destroy
     render :show
   end
 
