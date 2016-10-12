@@ -1,7 +1,10 @@
 class Api::PostsController < ApplicationController
 
   def index
-    @posts = Post.all;
+    posts_following = current_user.following_posts;
+    # own_posts = current_user.posts
+    @posts = posts_following
+    # @posts = posts_following.concat(own_posts)
     render :index
   end
 
