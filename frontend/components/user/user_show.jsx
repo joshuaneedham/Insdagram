@@ -7,8 +7,6 @@ class UserShow extends React.Component {
     this.postText = this.postText.bind(this);
   }
 
-
-
   componentDidUpdate(){
     const userPosts = this.props.user.posts.map (post =>
       <img key={post.id} src={post.image_url} />
@@ -32,7 +30,10 @@ class UserShow extends React.Component {
         <div className="user-show-container">
           <div className="user-show-header">
             <div className="user-show-information">
-              <div className="username-header">{this.props.user.username}</div>
+              <div className="username-header">
+                {this.props.user.username}
+                <div className="follow-button">Follow</div>
+              </div>
               <div className="user-stats">
                 <span className="posts-bold">{this.props.user.posts.length}</span>
                 { this.postText() }
