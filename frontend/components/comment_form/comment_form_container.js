@@ -7,7 +7,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  createComment: (comment) => dispatch(createComment(comment))
+  createComment: comment => dispatch(createComment(comment))
 });
 
 export default connect(

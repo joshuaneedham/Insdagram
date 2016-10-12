@@ -9,6 +9,7 @@ class PostIndexItem extends React.Component {
     this.timeSincePost = this.timeSincePost.bind(this);
     this.navigateUserShow = this.navigateUserShow.bind(this);
     this.likeText = this.likeText.bind(this);
+    this.addLike = this.addLike.bind(this);
   }
 
   timeSincePost(createdAt){
@@ -65,6 +66,18 @@ class PostIndexItem extends React.Component {
     }
   }
 
+  addLike(){
+    const user_id = this.props.currentUser.id;
+    const post_id = this.props.post.id;
+
+    let like = {
+      user_id: `${user_id}`,
+      post_id: `${post_id}`
+    };
+
+    this.props.createLike(like);
+  }
+
   render() {
     let username = this.props.post.user.username.concat(" ");
     const commentsRender = this.props.post.comments.map( comment =>
@@ -109,7 +122,7 @@ class PostIndexItem extends React.Component {
             </div>
           </div>
           <div className="like-comment-render">
-            <div className="material-icons">
+            <div className="material-icons" onClick={this.addLike}>
               <i className="material-icons heart-icon">favorite_border</i>
             </div>
             <CommentForm postId={this.props.post.id} />
