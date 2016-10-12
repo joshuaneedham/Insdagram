@@ -42,12 +42,12 @@ post7 = Post.create!(caption: "I been had these visions
   All I had to do was just go and get it", user_id: drake.id, image: young_drake_picture
 )
 
-like1 = Like.create!(user_id: user1.id, post_id: post1.id)
-like2 = Like.create!(user_id: user1.id, post_id: post2.id)
-like3 = Like.create!(user_id: user1.id, post_id: post3.id)
-like4 = Like.create!(user_id: user1.id, post_id: post4.id)
-like5 = Like.create!(user_id: user1.id, post_id: post5.id)
-like6 = Like.create!(user_id: user1.id, post_id: post6.id)
+like1 = Like.create!(user_id: user5.id, post_id: post1.id)
+like2 = Like.create!(user_id: user5.id, post_id: post2.id)
+like3 = Like.create!(user_id: user5.id, post_id: post3.id)
+like4 = Like.create!(user_id: user5.id, post_id: post4.id)
+like5 = Like.create!(user_id: user5.id, post_id: post5.id)
+like6 = Like.create!(user_id: user5.id, post_id: post6.id)
 like7 = Like.create!(user_id: user3.id, post_id: post1.id)
 like8 = Like.create!(user_id: user3.id, post_id: post2.id)
 like9 = Like.create!(user_id: user3.id, post_id: post3.id)

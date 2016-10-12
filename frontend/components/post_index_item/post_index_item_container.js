@@ -8,7 +8,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  createLike: like => dispatch(createLike(like))
+  createLike: post_id => dispatch(createLike(post_id))
 });
 
 export default connect(

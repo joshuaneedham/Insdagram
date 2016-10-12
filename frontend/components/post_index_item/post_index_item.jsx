@@ -67,15 +67,9 @@ class PostIndexItem extends React.Component {
   }
 
   addLike(){
-    const user_id = this.props.currentUser.id;
     const post_id = this.props.post.id;
 
-    let like = {
-      user_id: `${user_id}`,
-      post_id: `${post_id}`
-    };
-
-    this.props.createLike(like);
+    this.props.createLike(post_id);
   }
 
   render() {
