@@ -19,8 +19,7 @@
 .user-show-information {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
 }
 
 .user-show-header {
@@ -30,32 +29,41 @@
 }
 
 .username-header {
-  display: block;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.username-title {
   font-weight: 300;
   font-size: 32px;
   color: black;
 }
 
 .user-stats {
-  display: block;
   color: black;
+  margin: 15px 0;
 }
 
-.posts-bold {
-  float: left;
-  font-weight: bold;
+.stat-number {
+  font-weight: 700;
 }
 
-.posts-regular {
-  display: block;
-  float: left;
-  margin-left: 4px;
+.stat-text {
+  margin-left: 5px;
+}
+
+.followers-stats {
+  padding-left: 40px;
+}
+
+.following-stats {
+  padding-left: 40px;
 }
 
 .user-full-name {
-  display: block;
   color: black;
-  margin-top: 5px;
+  font-weight: 700;
 }
 
 .followed-button {

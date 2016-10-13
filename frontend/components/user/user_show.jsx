@@ -9,6 +9,7 @@ class UserShow extends React.Component {
     this.followStatus = this.followStatus.bind(this);
     this.followText = this.followText.bind(this);
     this.followCssClass = this.followCssClass.bind(this);
+    this.followInformationText = this.followInformationText.bind(this);
   }
 
   componentDidUpdate(){
@@ -60,6 +61,14 @@ class UserShow extends React.Component {
     }
   }
 
+  followInformationText(){
+    if (this.props.user.followers.length === 1) {
+      return "follower";
+    } else {
+      return "followers";
+    }
+  }
+
   render(){
     if (this.props.user.posts) {
       const userPosts = this.props.user.posts.map (post =>
@@ -71,14 +80,24 @@ class UserShow extends React.Component {
           <div className="user-show-header">
             <div className="user-show-information">
               <div className="username-header">
-                <span>{this.props.user.username}</span>
+                <span className="username-title">{this.props.user.username}</span>
                 <span className={ this.followCssClass() }
                   onClick={this.followAction}>{ this.followText() }
                 </span>
               </div>
               <div className="user-stats">
-                <span className="posts-bold">{this.props.user.posts.length}</span>
-                { this.postText() }
+                <span className="post-stats">
+                  <span className="stat-number">{this.props.user.posts.length}</span>
+                  <span className="stat-text">{ this.postText() }</span>
+                </span>
+                <span className="followers-stats">
+                  <span className="stat-number">{ this.props.user.followers.length }</span>
+                  <span className="stat-text">{ this.followInformationText() }</span>
+                </span>
+                <span className="following-stats">
+                  <span className="stat-number">{ this.props.user.followings.length }</span>
+                  <span className="stat-text">following</span>
+                </span>
               </div>
               <div className="user-full-name">{this.props.user.full_name}</div>
             </div>
