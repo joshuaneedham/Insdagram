@@ -2,11 +2,6 @@
   margin-top: 60px;
 }
 
-.user-show-header {
-  display: flex;
-  justify-content: center;
-}
-
 .user-show-body {
   display: flex;
   margin: 47px auto;
@@ -26,6 +21,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.user-show-header {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 
 .username-header {
@@ -58,5 +59,18 @@
 }
 
 .follow-button {
-  border: 1px solid red;
+  background: #fafafa;
+  color: #3897f0;
+  font-size: 15px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700px;
+  text-align: center;
+  border: 1px solid #3897f0;
+  border-radius: 4px;
+  padding: 6px 13px;
+  margin-left: 23px;
+}
+
+.follow-button:hover {
+  cursor: pointer;
 }

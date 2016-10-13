@@ -5,6 +5,7 @@ class UserShow extends React.Component {
     super(props);
 
     this.postText = this.postText.bind(this);
+    this.followAction = this.followAction.bind(this);
   }
 
   componentDidUpdate(){
@@ -21,6 +22,12 @@ class UserShow extends React.Component {
     }
   }
 
+  followAction(){
+    const userId = this.props.user.id;
+
+    this.props.createFollow(userId);
+  }
+
   render(){
     if (this.props.user.posts) {
       const userPosts = this.props.user.posts.map (post =>
@@ -31,8 +38,10 @@ class UserShow extends React.Component {
           <div className="user-show-header">
             <div className="user-show-information">
               <div className="username-header">
-                {this.props.user.username}
-                <div className="follow-button">Follow</div>
+                <span>{this.props.user.username}</span>
+                <span className="follow-button"
+                  onClick={this.followAction}>Follow
+                </span>
               </div>
               <div className="user-stats">
                 <span className="posts-bold">{this.props.user.posts.length}</span>

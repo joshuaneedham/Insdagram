@@ -17,7 +17,9 @@ class Api::UsersController < ApplicationController
 
   def follow
     @user = User.find(params[:id])
-    follow = @user.following_user.new(follower_id: current_user.id)
+    follow = Follow.new(follower_id: current_user.id, followed_id: @user.id)
+    # follow = @user.following_user.new(follower_id: current_user.id)
+
     if follow.save
       render :show
     else
