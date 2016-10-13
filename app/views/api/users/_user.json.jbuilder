@@ -1,5 +1,6 @@
 json.extract! user, :id, :username, :full_name
 json.posts user.posts
+
 json.posts user.posts.each do |post|
   json.post_id post.id
   json.caption post.caption
@@ -9,3 +10,6 @@ json.posts user.posts.each do |post|
   json.image_file_size post.image_file_size
   json.image_url asset_url(post.image.url)
 end
+
+json.followers user.followers
+json.followings user.followings
