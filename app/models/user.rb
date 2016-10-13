@@ -51,6 +51,11 @@ class User < ActiveRecord::Base
     user
   end
 
+  def feed_posts
+    user_ids = [self.id] + self.following_ids
+    Post.where(user_id: user_ids).order(created_at: :desc)
+  end
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)

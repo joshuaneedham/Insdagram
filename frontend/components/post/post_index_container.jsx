@@ -3,7 +3,7 @@ import PostIndex from './post_index';
 import { requestPosts } from '../../actions/post_actions';
 import { createLike, destroyLike } from '../../actions/like_actions';
 
-const asArray = (obj) => Object.keys(obj).map(key => obj[key]);
+const asArray = (obj) => Object.keys(obj).reverse().map(key => obj[key]);
 
 const mapStateToProps = (state) => {
   return ({
