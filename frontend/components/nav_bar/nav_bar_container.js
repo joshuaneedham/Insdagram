@@ -5,12 +5,13 @@ import { requestUser } from '../../actions/user_actions';
 
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser,
-  users: state.users
+  searchUsers: state.searchUsers
 });
 
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(logout()),
-  requestUser: id => dispatch(requestUser(id))
+  requestUser: id => dispatch(requestUser(id)),
+  requestUsers: (username) => dispatch(requestUsers(username))
 });
 
 export default connect(

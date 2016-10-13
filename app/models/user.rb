@@ -51,6 +51,12 @@ class User < ActiveRecord::Base
     user
   end
 
+  def self.search(username)
+    return [] if username.length == 0
+
+    User.where("lower(username) like ?", "%#{username.downcase}%")
+  end
+
   def feed_posts
     user_ids = [self.id] + self.following_ids
     Post.where(user_id: user_ids).order(created_at: :desc)

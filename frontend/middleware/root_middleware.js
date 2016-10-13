@@ -5,6 +5,7 @@ import UserMiddleware from './user_middleware';
 import CommentsMiddleware from './comments_middleware';
 import LikesMiddleware from './likes_middleware';
 import FollowMiddleware from './follow_middleware';
+import SearchMiddleware from './search_middleware';
 
 const RootMiddleware = applyMiddleware(
   SessionMiddleware,
@@ -12,7 +13,8 @@ const RootMiddleware = applyMiddleware(
   PostsMiddleware,
   CommentsMiddleware,
   LikesMiddleware,
-  FollowMiddleware
+  FollowMiddleware,
+  SearchMiddleware
 );
 
 export default RootMiddleware;

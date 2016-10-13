@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     resources :users do
-      get 'search'
+      collection do
+        get 'search'
+      end
       member do
         post 'follow'
         delete 'unfollow'
