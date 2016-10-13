@@ -14,6 +14,7 @@ class PostIndexItem extends React.Component {
     this.likeIcon = this.likeIcon.bind(this);
     this.likeStatus = this.likeStatus.bind(this);
     this.likeTransition = this.likeTransition.bind(this);
+    this.oneWayLikeAction = this.oneWayLikeAction.bind(this);
   }
 
   timeSincePost(createdAt){
@@ -90,7 +91,7 @@ class PostIndexItem extends React.Component {
   }
 
   oneWayLikeAction(){
-    
+    if (!this.likeStatus()) { this.likeAction(); }
   }
 
   likeCssClass(){
@@ -137,7 +138,7 @@ class PostIndexItem extends React.Component {
         </div>
         <div className="photo-container">
           <img className="post-picture"
-            onDoubleClick={this.likeAction}
+            onDoubleClick={this.oneWayLikeAction}
             src={this.props.post.image_url} />
         </div>
         <div className="post-index-item-footer">
