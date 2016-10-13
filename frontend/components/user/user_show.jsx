@@ -6,6 +6,9 @@ class UserShow extends React.Component {
 
     this.postText = this.postText.bind(this);
     this.followAction = this.followAction.bind(this);
+    this.followStatus = this.followStatus.bind(this);
+    this.followText = this.followText.bind(this);
+    this.followCssClass = this.followCssClass.bind(this);
   }
 
   componentDidUpdate(){
@@ -22,10 +25,39 @@ class UserShow extends React.Component {
     }
   }
 
+  followStatus(){
+    for (var key in this.props.user.followers) {
+      if (this.props.user.followers[key].id === this.props.currentUser.id) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  followText() {
+    if (this.followStatus()) {
+      return "Following";
+    } else {
+      return "Follow";
+    }
+  }
+
+  followCssClass(){
+    if (this.followStatus()) {
+      return "unfollowed-button";
+    } else {
+      return "followed-button";
+    }
+  }
+
   followAction(){
     const userId = this.props.user.id;
 
-    this.props.createFollow(userId);
+    if (this.followStatus()) {
+      this.props.destroyFollow(userId);
+    } else {
+      this.props.createFollow(userId);
+    }
   }
 
   render(){
@@ -33,14 +65,15 @@ class UserShow extends React.Component {
       const userPosts = this.props.user.posts.map (post =>
         <img className="user-show-image" key={post.post_id} src={post.image_url} />
       );
+
       return(
         <div className="user-show-container">
           <div className="user-show-header">
             <div className="user-show-information">
               <div className="username-header">
                 <span>{this.props.user.username}</span>
-                <span className="follow-button"
-                  onClick={this.followAction}>Follow
+                <span className={ this.followCssClass() }
+                  onClick={this.followAction}>{ this.followText() }
                 </span>
               </div>
               <div className="user-stats">

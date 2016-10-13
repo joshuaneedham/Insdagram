@@ -6,7 +6,7 @@ export const createFollow = ( userId, success) => {
   });
 };
 
-export const destroyFollow = ( postId, success) => {
+export const destroyFollow = ( userId, success) => {
   $.ajax({
     method: 'DELETE',
     url: `api/users/${userId}/unfollow`,
