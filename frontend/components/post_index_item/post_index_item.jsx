@@ -115,7 +115,6 @@ class PostIndexItem extends React.Component {
   }
 
   render() {
-    debugger
     let username = this.props.post.user.username.concat(" ");
     const commentsRender = this.props.post.comments.map( comment =>
       <div className="single-comment"
