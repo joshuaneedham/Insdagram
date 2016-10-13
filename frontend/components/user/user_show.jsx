@@ -10,6 +10,7 @@ class UserShow extends React.Component {
     this.followText = this.followText.bind(this);
     this.followCssClass = this.followCssClass.bind(this);
     this.followInformationText = this.followInformationText.bind(this);
+    this.checkUser = this.checkUser.bind(this);
   }
 
   componentDidUpdate(){
@@ -69,6 +70,16 @@ class UserShow extends React.Component {
     }
   }
 
+  checkUser(){
+    if (this.props.user.id !== this.props.currentUser.id) {
+      return(
+        <span className={ this.followCssClass() }
+          onClick={this.followAction}>{ this.followText() }
+        </span>
+      );
+    }
+  }
+
   render(){
     if (this.props.user.posts) {
       const userPosts = this.props.user.posts.map (post =>
@@ -81,9 +92,7 @@ class UserShow extends React.Component {
             <div className="user-show-information">
               <div className="username-header">
                 <span className="username-title">{this.props.user.username}</span>
-                <span className={ this.followCssClass() }
-                  onClick={this.followAction}>{ this.followText() }
-                </span>
+                { this.checkUser() }
               </div>
               <div className="user-stats">
                 <span className="post-stats">
