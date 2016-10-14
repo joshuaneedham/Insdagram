@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, hashHistory } from 'react-router';
+import Search from './search';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -42,7 +43,10 @@ class NavBar extends React.Component {
         <img className="official-logo"
           src={insdagramAssets.logoIcon}
           onClick={() => hashHistory.push("/")}/>
-        <input className="user-search" type="search" placeholder="Search" />
+        <Search
+          requestUsers={this.props.requestUsers}
+          searchUsers={this.props.searchUsers}
+          />
         { this.showHeader() }
       </div>
     );

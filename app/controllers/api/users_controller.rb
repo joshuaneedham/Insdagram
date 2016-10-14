@@ -1,4 +1,9 @@
 class Api::UsersController < ApplicationController
+  def index
+    @users = User.search( params[:username] )
+    render :index
+  end
+
   def create
     @user = User.new(user_params)
 
@@ -38,9 +43,6 @@ class Api::UsersController < ApplicationController
   end
 
   def search
-    @user = User.search( params[:username] )
-
-    # render '?'
   end
 
   def user_params
