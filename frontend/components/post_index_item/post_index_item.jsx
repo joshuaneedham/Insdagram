@@ -119,7 +119,10 @@ class PostIndexItem extends React.Component {
     const commentsRender = this.props.post.comments.map( comment =>
       <div className="single-comment"
         key={comment.id}>
-        <div className="caption-username comment-username">{comment.username}</div>
+        <div className="caption-username comment-username"
+          onClick={() => this.navigateUserShow(comment.user_id)}>
+            {comment.username}
+        </div>
         <div className="caption-text comment-text">{comment.body}</div>
       </div>
     );

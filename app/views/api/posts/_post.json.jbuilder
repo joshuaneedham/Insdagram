@@ -12,4 +12,5 @@ json.comments post.comments.order(created_at: :asc).each do |comment|
   json.username comment.user.username
   json.id comment.id
   json.created_at comment.created_at
+  json.user_id comment.user.id
 end
