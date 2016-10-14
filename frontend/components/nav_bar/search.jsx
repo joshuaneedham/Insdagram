@@ -12,18 +12,43 @@ class Search extends React.Component {
     this.update = this.update.bind(this);
     this.renderUsers = this.renderUsers.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.searchCssClass = this.searchCssClass.bind(this);
+    this.userShow = this.userShow.bind(this);
   }
 
   update(field) {
     return (e) => this.setState({ [field]: e.currentTarget.value });
   }
 
+  userShow(e){
+    const userValue= e.currentTarget.value;
+    hashHistory.push(`/user/${userValue}`);
+  }
+
   renderUsers(){
     const that = this;
     if (this.props.searchUsers.length > 0) {
       return this.props.searchUsers.map((user) => {
-        return <li key={user.id}>{user.username}</li>;
+        return <li className="list-item"
+                  key={user.id}
+                  onClick={this.userShow}
+                  value={user.id}>
+                <div className="list-item-cat list-item-username">
+                  { user.username}
+                </div>
+                <div className="list-item-cat list-item-full-name">
+                  { user.full_name }
+                </div>
+              </li>;
       });
+    }
+  }
+
+  searchCssClass() {
+    if (this.props.searchUsers.length > 0) {
+      return "search-results";
+    } else {
+      return "blank-class";
     }
   }
 
@@ -42,7 +67,7 @@ class Search extends React.Component {
           onChange={this.handleChange}
           value={this.state.username}
           placeholder="Search" />
-        <ul>{ this.renderUsers() }</ul>
+        <ul className={this.searchCssClass()}>{ this.renderUsers() }</ul>
       </div>
     );
   }

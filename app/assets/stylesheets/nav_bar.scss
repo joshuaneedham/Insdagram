@@ -26,7 +26,15 @@
 }
 
 .user-search-container {
-  
+  order: 2;
+  position: relative;
+}
+
+.search-results {
+  position: absolute;
+  top: 40px;
+  background: white;
+  width: 210px;
 }
 
 .user-search {
@@ -41,6 +49,29 @@
   text-align: center;
   color: #999999;
   font-weight: 100;
+}
+
+.blank-class {
+  display: none;
+}
+
+.list-item {
+  padding: 10px 15px;
+  border: 1px solid #dbdbdb;
+}
+
+.list-item-cat {
+  color: black;
+  font-size: 13px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.list-item-username {
+  color: black;
+}
+
+.list-item-full-name {
+  color: #999999;
 }
 
 .user-search:focus {
