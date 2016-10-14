@@ -7,6 +7,7 @@ class Search extends React.Component {
 
     this.state = {
       username: "",
+      displaySearch: false
     };
 
     this.update = this.update.bind(this);
@@ -14,6 +15,8 @@ class Search extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.searchCssClass = this.searchCssClass.bind(this);
     this.userShow = this.userShow.bind(this);
+    this.showList = this.showList.bind(this);
+    this.hideList = this.hideList.bind(this);
   }
 
   update(field) {
@@ -23,7 +26,7 @@ class Search extends React.Component {
   userShow(e){
     const userValue= e.currentTarget.value;
     hashHistory.push(`/user/${userValue}`);
-    this.setState({ username: "" });
+    this.setState({ username: ""});
   }
 
   renderUsers(){
@@ -33,6 +36,7 @@ class Search extends React.Component {
         return <li className="list-item"
                   key={user.id}
                   onClick={this.userShow}
+                  onBlur={this.props.clearSearchUsers}
                   value={user.id}>
                 <div className="list-item-cat list-item-username">
                   { user.username}
@@ -60,16 +64,33 @@ class Search extends React.Component {
     that.props.requestUsers(this.state.username);
   }
 
+  showList(){
+    this.setState({ displaySearch: true });
+  }
+
+  hideList(){
+    setTimeout(() => this.setState({ displaySearch: false }), 100);
+  }
+
   render() {
+    let listCssClass = "blank-class";
+
+    if (this.state.displaySearch && this.props.searchUsers.length > 0){
+      listCssClass = "search-results";
+    } else {
+      listCssClass = "blank-class";
+    }
+
     return (
       <div className="user-search-container">
         <input className="user-search"
           type="search"
           onChange={this.handleChange}
           value={this.state.username}
-          onBlur={this.props.clearSearchUsers}
+          onFocus={this.showList}
+          onBlur={this.hideList}
           placeholder="Search" />
-        <ul className={this.searchCssClass()}>{ this.renderUsers() }</ul>
+        <ul className={listCssClass}>{ this.renderUsers() }</ul>
       </div>
     );
   }
