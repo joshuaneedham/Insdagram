@@ -35,6 +35,7 @@
   top: 40px;
   background: white;
   width: 210px;
+  border-bottom: 1px solid #dbdbdb;
 }
 
 .user-search {
@@ -57,7 +58,9 @@
 
 .list-item {
   padding: 10px 15px;
-  border: 1px solid #dbdbdb;
+  border-top: 1px solid #dbdbdb;
+  border-left: 1px solid #dbdbdb;
+  border-right: 1px solid #dbdbdb;
 }
 
 .list-item-cat {

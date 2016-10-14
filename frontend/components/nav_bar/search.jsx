@@ -23,6 +23,7 @@ class Search extends React.Component {
   userShow(e){
     const userValue= e.currentTarget.value;
     hashHistory.push(`/user/${userValue}`);
+    this.setState({ username: "" });
   }
 
   renderUsers(){
