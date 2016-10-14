@@ -44,6 +44,7 @@ class NavBar extends React.Component {
           src={insdagramAssets.logoIcon}
           onClick={() => hashHistory.push("/")}/>
         <Search
+          clearSearchUsers={this.props.clearSearchUsers}
           requestUsers={this.props.requestUsers}
           searchUsers={this.props.searchUsers}
           />

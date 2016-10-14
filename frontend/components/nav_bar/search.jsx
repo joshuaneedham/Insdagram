@@ -67,6 +67,7 @@ class Search extends React.Component {
           type="search"
           onChange={this.handleChange}
           value={this.state.username}
+          onBlur={this.props.clearSearchUsers}
           placeholder="Search" />
         <ul className={this.searchCssClass()}>{ this.renderUsers() }</ul>
       </div>
