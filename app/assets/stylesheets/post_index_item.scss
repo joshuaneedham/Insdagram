@@ -6,7 +6,8 @@
   background: white;
 }
 
-.post-picture {
+.post-picture:hover {
+  cursor: pointer;
 }
 
 .post-index-item-header {
@@ -110,6 +111,14 @@
 .material-icons.liked-heart-icon {
   font-size: 30px;
   color: #ed4956;
+}
+
+.material-icons.unliked-heart-icon:hover {
+  cursor: pointer;
+}
+
+.material-icons.liked-heart-icon:hover {
+  cursor: pointer;
 }
 
 .caption-username:active {
