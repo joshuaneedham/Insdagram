@@ -63,6 +63,10 @@
   border-right: 1px solid #dbdbdb;
 }
 
+.list-item:hover {
+  cursor: pointer;
+}
+
 .list-item-cat {
   color: black;
   font-size: 13px;

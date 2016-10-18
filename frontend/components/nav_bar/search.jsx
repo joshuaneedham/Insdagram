@@ -69,7 +69,7 @@ class Search extends React.Component {
   }
 
   hideList(){
-    setTimeout(() => this.setState({ displaySearch: false }), 100);
+    setTimeout(() => this.setState({ displaySearch: false }), 200);
   }
 
   render() {
