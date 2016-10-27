@@ -6,7 +6,7 @@ const UserMiddleware = ({getState, dispatch}) => next => action => {
 
   switch(action.type){
     case REQUEST_USER:
-      fetchUser(action.id, userSuccess, () => console.log("error"));
+      fetchUser(action.id, userSuccess);
       break;
     default:
       return next(action);
