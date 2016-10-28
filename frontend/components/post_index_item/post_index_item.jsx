@@ -104,7 +104,7 @@ class PostIndexItem extends React.Component {
     if (this.state.active === false) {
       return "no-display-heart";
     } else if (this.state.active === true) {
-      setTimeout(this.transitionHeartClass, 450);
+      setTimeout(this.transitionHeartClass, 400);
       return "display-heart";
     }
   }
