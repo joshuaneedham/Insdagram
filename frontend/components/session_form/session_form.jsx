@@ -76,8 +76,8 @@ class SessionForm extends React.Component {
   }
 
   guestLogin(){
-    this.setState({username: "test", password: "testing"});
-    const user = {username: "test", password: "testing"};
+    this.setState({username: "insdagrammer", password: "testing"});
+    const user = {username: "insdagrammer", password: "testing"};
   }
 
   guestLoginButton(){
