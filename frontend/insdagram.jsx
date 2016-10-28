@@ -38,6 +38,7 @@ import Root from './components/root';
 // window.store = configureStore();
 // window.requestUser = requestUser;
 
+// window.store = store;
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -47,8 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
-
-  window.store = store;
 
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store}/>, root);
