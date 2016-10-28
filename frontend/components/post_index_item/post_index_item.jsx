@@ -6,6 +6,8 @@ class PostIndexItem extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = { active: false };
+
     this.timeSincePost = this.timeSincePost.bind(this);
     this.navigateUserShow = this.navigateUserShow.bind(this);
     this.likeText = this.likeText.bind(this);
@@ -15,6 +17,7 @@ class PostIndexItem extends React.Component {
     this.likeStatus = this.likeStatus.bind(this);
     this.likeTransition = this.likeTransition.bind(this);
     this.oneWayLikeAction = this.oneWayLikeAction.bind(this);
+    this.transitionHeartClass = this.transitionHeartClass.bind(this);
   }
 
   timeSincePost(createdAt){
@@ -91,7 +94,23 @@ class PostIndexItem extends React.Component {
   }
 
   oneWayLikeAction(){
-    if (!this.likeStatus()) { this.likeAction(); }
+    if (!this.likeStatus()) {
+      this.likeAction();
+      this.setState({active: true});
+    }
+  }
+
+  heartClass(){
+    if (this.state.active === false) {
+      return "no-display-heart";
+    } else if (this.state.active === true) {
+      setTimeout(this.transitionHeartClass, 450);
+      return "display-heart";
+    }
+  }
+
+  transitionHeartClass(){
+      this.setState({active: false});
   }
 
   likeCssClass(){
@@ -143,6 +162,7 @@ class PostIndexItem extends React.Component {
           <img className="post-picture"
             onDoubleClick={this.oneWayLikeAction}
             src={this.props.post.image_url} />
+          <img className={this.heartClass()} src={insdagramAssets.whiteHeart} />
         </div>
         <div className="post-index-item-footer">
           <div className="caption-comment-holder">
