@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "heroku-postbuild": "webpack --config webpack.config.prod.js",
+    "heroku-postbuild": "webpack --config webpack.config.prod.js"
   },
   "engines": {
     "node": "5.1.0",
