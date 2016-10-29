@@ -10,12 +10,16 @@ This feature is unavailable on Instagram's desktop site, so I took freedom in it
 **Posts** are stored in the database with a `user_id`, `imageFile`, `caption`, and `timestamp`.  `user_id` provided a foreign key to reference the user who made the post, since a post `belongs_to` a user.  An `imageFile` is stored in the database with four components: `image_file_name`, `image_content_type`, `image_file_size`, and `image_updated_at`.  Using *Amazon Web Services*, I store the information for a given post.  This allows the application to scale, since data for high resolution photographs are being hosted by a third party.  A `caption` is the only optional value for a post, as a user does not need to post a picture with a caption.  A post's `timestamp` is necessary for rendering the post in the feed in the correct order.
 
 ## Likes
-A user may like the post of another user.
+A user may like and subsequently unlike the post of another user.
+This utilizes member routes, since the incormation necessary for a like (`post_id` and `user_id`) can be accessed through the **Post Controller**.
 
 ## Comments
+Users can comment on posts.  In doing so, an AJAX request is sent to the database, and on completion, the comment is rendered on the post.
 
 ## Follows
+Users can follow other users, and by doing so, the other user's posts appear in that user's feed.  This utilized member routes, since the information necessary to create a follow (`follower_id` and `followed_id`) can be accessed through the **User controller**.
 
 ## Authentication
 
 ## Search
+Users can search for others with a fuzzy search. Results update on each character change and clicking on a user renders that user's show page.
