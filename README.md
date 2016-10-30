@@ -16,13 +16,16 @@ A user may like and subsequently unlike a post.  On the front-end, data for this
 
 The **Like** table is join table links a user with a post.  In addition to its own ID, the table consists of `post_id`, `user_id`, and a `timestamp`.  A like `belongs_to` a post and a user, since it has foreign keys pointing to both.  There are constraints so that a user may only like a given post once.
 
-The likes are created and rendered via a heart below each post.  A user may click once to like a post and click again to remove that like.  In addition, a user may double click an unliked post's photograph in order to like it.  This is consistent with Instagram's user interface.  Upon double clicking an unliked photo, a like i created and a white heart appears momentarily on the photo.
+The likes are created and rendered via a heart below each post.  A user may click once to like a post and click again to remove that like.  In addition, a user may double click an unliked post's photograph in order to like it.  This is consistent with Instagram's user interface.  Upon double clicking an unliked photo, a like is created and a white heart appears momentarily on the photo.
 
 ## Comments
-Users can comment on posts.  In doing so, an AJAX request is sent to the database, and on completion, the comment is rendered on the post.
+Users can comment on posts.  This also utilizes React-Redux to pass data.  In doing so, an AJAX request is sent to the database, and upon completion, the comment is rendered on the post.  Upon success, the comment is rendered on a given
+**Post Index Item** without re-rendering the entire page.
+
+The **Comment** table consists of a `body`, `user_id`, `post_id`, and `timestamps`.  A comment `belongs_to` a user and a post, since it has foreign keys pointing to both.  A post must have a body in order to be entered into the database, as constraints exist to prevent empty entries.
 
 ## Follows
-Users can follow other users, and by doing so, the other user's posts appear in that user's feed.  This utilized member routes, since the information necessary to create a follow (`follower_id` and `followed_id`) can be accessed through the **User controller**.
+Users can follow other users, and by doing so, the other user's posts appear in that user's feed.  This utilizes member routes, since the information necessary to create a follow (`follower_id` and `followed_id`) can be accessed through the **User controller**.
 
 ## Authentication
 
