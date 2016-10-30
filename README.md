@@ -2,6 +2,8 @@
 
 Insdagram is a full-stack web application built with a Ruby on Rails backend and PostgreSQL database.  The front-end uses React.js to render components and Redux for its data flow and state container.
 
+![Insdagram](http://www.daviddipanfilo.com/img/insdagram.png "Insdagram")
+
 ## Posts
 Users may post photographs to share with their followers on Insdagram.  Clicking on the + symbol in the navigation bar renders the `PostForm` component.  This enables users to upload a photograph from their desktop, preview that photograph, upload it, and return to their feed.
 
