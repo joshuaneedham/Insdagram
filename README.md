@@ -2,6 +2,8 @@
 
 Insdagram is a full-stack web application built with a Ruby on Rails backend and PostgreSQL database.  The front-end uses React.js to render components and Redux for its data flow and state container.
 
+[View Insdagram here](http://www.insdagram.co)
+
 ![Insdagram](http://www.daviddipanfilo.com/img/insdagram.png "Insdagram")
 
 ## Posts
