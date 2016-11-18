@@ -1,4 +1,5 @@
 import React from 'react';
+import PostShowModal from '../modal/post_show_modal';
 
 class UserShow extends React.Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class UserShow extends React.Component {
     this.followCssClass = this.followCssClass.bind(this);
     this.followInformationText = this.followInformationText.bind(this);
     this.checkUser = this.checkUser.bind(this);
+    this.onModalClick = this.onModalClick.bind(this);
   }
 
   componentDidUpdate(){
@@ -80,14 +82,19 @@ class UserShow extends React.Component {
     }
   }
 
+  onModalClick(){
+    const modal = document.getElementById('modal');
+  }
+
   render(){
     if (this.props.user.posts) {
       const userPosts = this.props.user.posts.map (post =>
-        <img className="user-show-image" key={post.post_id} src={post.image_url} />
+        <img className="user-show-image" key={post.post_id} src={post.image_url} onClick={this.onModalClick} />
       );
 
       return(
         <div className="user-show-container">
+          <PostShowModal />
           <div className="user-show-header">
             <div className="user-show-information">
               <div className="username-header">
