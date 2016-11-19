@@ -1,9 +1,11 @@
 import React from 'react';
 import PostShowModal from '../modal/post_show_modal';
+import Modal from 'react-modal';
 
 class UserShow extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { modalOpen: false, currentImage: null};
 
     this.postText = this.postText.bind(this);
     this.followAction = this.followAction.bind(this);
@@ -12,7 +14,18 @@ class UserShow extends React.Component {
     this.followCssClass = this.followCssClass.bind(this);
     this.followInformationText = this.followInformationText.bind(this);
     this.checkUser = this.checkUser.bind(this);
-    this.onModalClick = this.onModalClick.bind(this);
+
+    // this.openModal = this.openModal.bind(this);
+    // this.closeModal = this.closeModal.bind(this);
+  }
+
+
+  openModal(e){
+    this.setState({modalOpen: true});
+  }
+
+  closeModal(){
+    this.setState({modalOpen: false});
   }
 
   componentDidUpdate(){
@@ -82,19 +95,27 @@ class UserShow extends React.Component {
     }
   }
 
-  onModalClick(){
-    const modal = document.getElementById('modal');
-  }
-
   render(){
     if (this.props.user.posts) {
       const userPosts = this.props.user.posts.map (post =>
-        <img className="user-show-image" key={post.post_id} src={post.image_url} onClick={this.onModalClick} />
+        <img className="user-show-image" key={post.post_id}
+          src={post.image_url} />
       );
+
+      // onClick={this.openModal}
+
+      // closeTimeoutMS={this.placeholder}
+      // onAfterOpen={this.placeholder}
+
+      // <Modal className="modal"
+      //   isOpen={this.state.modalOpen}
+      //   onRequestClose={this.closeModal}
+      //   style={ModalStyle}>
+      //   <PostShowModal />
+      // </Modal>
 
       return(
         <div className="user-show-container">
-          <PostShowModal />
           <div className="user-show-header">
             <div className="user-show-information">
               <div className="username-header">
@@ -126,5 +147,29 @@ class UserShow extends React.Component {
     }
   }
 }
+
+const ModalStyle = {
+  overlay : {
+    position          : 'fixed',
+    top               : 0,
+    left              : 0,
+    right             : 0,
+    bottom            : 0,
+    backgroundColor   : 'rgba(0, 0, 0, 0.75)'
+  },
+  content : {
+    position                   : 'fixed',
+    top                        : '100px',
+    left                       : '100px',
+    right                      : '100px',
+    bottom                     : '100px',
+    border                     : '1px solid #ccc',
+    background                 : '#fff',
+    overflow                   : 'auto',
+    WebkitOverflowScrolling    : 'touch',
+    outline                    : 'none',
+    padding                    : '20px'
+  }
+};
 
 export default UserShow;
