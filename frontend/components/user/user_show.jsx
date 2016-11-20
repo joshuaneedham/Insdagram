@@ -25,6 +25,10 @@ class UserShow extends React.Component {
     );
   }
 
+  componentWillUnmount(){
+    this.props.clearUser();
+  }
+
   postText(){
     if (this.props.user.posts.length === 1) {
       return <span className="posts-regular">post</span>;
