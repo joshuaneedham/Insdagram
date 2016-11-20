@@ -15,17 +15,8 @@ class UserShow extends React.Component {
     this.followInformationText = this.followInformationText.bind(this);
     this.checkUser = this.checkUser.bind(this);
 
-    // this.openModal = this.openModal.bind(this);
-    // this.closeModal = this.closeModal.bind(this);
-  }
-
-
-  openModal(e){
-    this.setState({modalOpen: true});
-  }
-
-  closeModal(){
-    this.setState({modalOpen: false});
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
   componentDidUpdate(){
@@ -95,6 +86,15 @@ class UserShow extends React.Component {
     }
   }
 
+  openModal(post_id){
+    this.setState({modalOpen: true, currentImage: post_id});
+  }
+
+  closeModal(){
+    this.setState({modalOpen: false, currentImage: null});
+  }
+
+
   render(){
     if (this.props.user.posts) {
       const userPosts = this.props.user.posts.map (post =>
@@ -102,7 +102,7 @@ class UserShow extends React.Component {
           src={post.image_url} />
       );
 
-      // onClick={this.openModal}
+      // onClick={(e) => this.openModal(post.post_id)}
 
       // closeTimeoutMS={this.placeholder}
       // onAfterOpen={this.placeholder}
@@ -111,7 +111,7 @@ class UserShow extends React.Component {
       //   isOpen={this.state.modalOpen}
       //   onRequestClose={this.closeModal}
       //   style={ModalStyle}>
-      //   <PostShowModal />
+      //   <PostShowModal userProps={this.props} state={this.state}/>
       // </Modal>
 
       return(
@@ -158,17 +158,15 @@ const ModalStyle = {
     backgroundColor   : 'rgba(0, 0, 0, 0.75)'
   },
   content : {
-    position                   : 'fixed',
-    top                        : '100px',
-    left                       : '100px',
-    right                      : '100px',
-    bottom                     : '100px',
-    border                     : '1px solid #ccc',
+    position                   : 'absolute',
+    top                        : '15%',
+    left                       : '10%',
+    right                      : '10%',
+    bottom                     : '15%',
     background                 : '#fff',
-    overflow                   : 'auto',
+    overflow                   : 'hidden',
     WebkitOverflowScrolling    : 'touch',
     outline                    : 'none',
-    padding                    : '20px'
   }
 };
 
