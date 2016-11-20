@@ -20,6 +20,8 @@ class UserShow extends React.Component {
   }
 
   componentDidUpdate(){
+    this.props.clearSearchUsers();
+
     const userPosts = this.props.user.posts.map (post =>
       <img key={post.id} src={post.image_url} />
     );
@@ -100,8 +102,6 @@ class UserShow extends React.Component {
 
 
   render(){
-    this.props.clearSearchUsers();
-
     if (this.props.user.posts) {
       const userPosts = this.props.user.posts.map (post =>
         <img className="user-show-image" key={post.post_id}
