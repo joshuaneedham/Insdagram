@@ -100,6 +100,8 @@ class UserShow extends React.Component {
 
 
   render(){
+    this.props.clearSearchUsers();
+
     if (this.props.user.posts) {
       const userPosts = this.props.user.posts.map (post =>
         <img className="user-show-image" key={post.post_id}
