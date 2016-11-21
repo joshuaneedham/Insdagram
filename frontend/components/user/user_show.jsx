@@ -105,23 +105,23 @@ class UserShow extends React.Component {
     if (this.props.user.posts) {
       const userPosts = this.props.user.posts.map (post =>
         <img className="user-show-image" key={post.post_id}
-          src={post.image_url} />
+          src={post.image_url} onClick={(e) => this.openModal(post.post_id)} />
       );
-
-      // onClick={(e) => this.openModal(post.post_id)}
 
       // closeTimeoutMS={this.placeholder}
       // onAfterOpen={this.placeholder}
 
-      // <Modal className="modal"
-      //   isOpen={this.state.modalOpen}
-      //   onRequestClose={this.closeModal}
-      //   style={ModalStyle}>
-      //   <PostShowModal userProps={this.props} state={this.state}/>
-      // </Modal>
 
       return(
         <div className="user-show-container">
+          <div className="modal-container">
+            <Modal className="modal"
+              isOpen={this.state.modalOpen}
+              onRequestClose={this.closeModal}
+              style={ModalStyle}>
+              <PostShowModal userProps={this.props} state={this.state}/>
+            </Modal>
+          </div>
           <div className="user-show-header">
             <div className="user-show-information">
               <div className="username-header">
@@ -159,16 +159,16 @@ const ModalStyle = {
     position          : 'fixed',
     top               : 0,
     left              : 0,
-    right             : 0,
-    bottom            : 0,
+    // right             : 0,
+    // bottom            : 0,
     backgroundColor   : 'rgba(0, 0, 0, 0.75)'
   },
   content : {
-    position                   : 'absolute',
-    top                        : '15%',
-    left                       : '10%',
-    right                      : '10%',
-    bottom                     : '15%',
+    position                   : 'fixed',
+    top                        : '100px',
+    left                       : '140px',
+    right                      : '140px',
+    bottom                     : '100px',
     background                 : '#fff',
     overflow                   : 'hidden',
     WebkitOverflowScrolling    : 'touch',

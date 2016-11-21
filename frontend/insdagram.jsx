@@ -39,7 +39,6 @@ import Modal from 'react-modal';
 // window.store = configureStore();
 // window.requestUser = requestUser;
 
-// window.store = store;
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -49,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
+  window.store = store;
 
   Modal.setAppElement(document.body);
   const root = document.getElementById('root');
