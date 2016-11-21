@@ -3,6 +3,7 @@ import UserShow from './user_show';
 import { requestUser, clearUser } from '../../actions/user_actions';
 import { createFollow, destroyFollow } from '../../actions/follow_actions';
 import { clearSearchUsers } from '../../actions/search_actions';
+import { requestPosts } from '../../actions/post_actions';
 
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser,
@@ -10,6 +11,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+  requestPosts: () => dispatch(requestPosts()),
   requestUser: id => dispatch(requestUser(id)),
   clearUser: () => dispatch(clearUser()),
   clearSearchUsers: () => dispatch(clearSearchUsers()),

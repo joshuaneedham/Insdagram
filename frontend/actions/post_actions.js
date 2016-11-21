@@ -3,6 +3,7 @@ export const RECEIVE_POST = "RECEIVE_POST";
 export const REQUEST_POSTS = "REQUEST_POSTS";
 export const REQUEST_POST = "REQUEST_POST";
 export const CREATE_POST = "CREATE_POST";
+export const RECEIVE_SINGLE_POST = "RECEIVE_SINGLE_POST";
 
 export const requestPosts = () => ({
   type: REQUEST_POSTS
@@ -26,5 +27,10 @@ export const receivePost = post => ({
 export const createPost = (post, success) => ({
   type: CREATE_POST,
   success,
+  post
+});
+
+export const receiveSinglePost = post => ({
+  type: RECEIVE_SINGLE_POST,
   post
 });

@@ -1,4 +1,4 @@
-import { RECEIVE_POSTS, RECEIVE_POST} from '../actions/post_actions';
+import { RECEIVE_POSTS, RECEIVE_POST, RECEIVE_SINGLE_POST} from '../actions/post_actions';
 import merge from 'lodash/merge';
 
 const PostsReducer = (state = {}, action) => {
@@ -7,6 +7,8 @@ const PostsReducer = (state = {}, action) => {
       return action.posts;
     case RECEIVE_POST:
       return Object.assign({}, state, { [action.post.id]: action.post });
+    case RECEIVE_SINGLE_POST:
+      return { [action.post.id]: action.post };
     default:
       return state;
   }

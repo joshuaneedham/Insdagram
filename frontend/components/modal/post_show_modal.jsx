@@ -1,10 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Modal from 'react-modal';
 
 class PostShowModal extends React.Component {
   constructor(props) {
     super(props);
+  }
+
+  componentDidMount(){
+    this.props.requestPost(this.props.state.currentImage);
   }
 
   render(){
@@ -25,7 +28,5 @@ class PostShowModal extends React.Component {
     );
   }
 }
-
-
 
 export default PostShowModal;

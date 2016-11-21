@@ -1,5 +1,5 @@
 import React from 'react';
-import PostShowModal from '../modal/post_show_modal';
+import PostShowModalContainer from '../modal/post_show_modal_container';
 import Modal from 'react-modal';
 
 class UserShow extends React.Component {
@@ -98,6 +98,7 @@ class UserShow extends React.Component {
 
   closeModal(){
     this.setState({modalOpen: false, currentImage: null});
+    this.props.requestPosts();
   }
 
 
@@ -119,7 +120,7 @@ class UserShow extends React.Component {
               isOpen={this.state.modalOpen}
               onRequestClose={this.closeModal}
               style={ModalStyle}>
-              <PostShowModal userProps={this.props} state={this.state}/>
+              <PostShowModalContainer userProps={this.props} state={this.state}/>
             </Modal>
           </div>
           <div className="user-show-header">
