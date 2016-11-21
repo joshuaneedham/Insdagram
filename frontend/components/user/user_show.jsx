@@ -120,7 +120,7 @@ class UserShow extends React.Component {
               isOpen={this.state.modalOpen}
               onRequestClose={this.closeModal}
               style={ModalStyle}>
-              <PostShowModalContainer userProps={this.props} state={this.state}/>
+              <PostShowModalContainer state={this.state} closeModal={this.closeModal}/>
             </Modal>
           </div>
           <div className="user-show-header">

@@ -4,7 +4,8 @@ import { createLike, destroyLike } from '../../actions/like_actions';
 import { requestPost } from '../../actions/post_actions';
 
 const mapStateToProps = (state, ownProps) => ({
-  currentUser: state.session.currentUser
+  currentUser: state.session.currentUser,
+  post: state.posts
 });
 
 const mapDispatchToProps = dispatch => ({

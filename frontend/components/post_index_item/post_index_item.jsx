@@ -15,7 +15,6 @@ class PostIndexItem extends React.Component {
     this.likeCssClass = this.likeCssClass.bind(this);
     this.likeIcon = this.likeIcon.bind(this);
     this.likeStatus = this.likeStatus.bind(this);
-    this.likeTransition = this.likeTransition.bind(this);
     this.oneWayLikeAction = this.oneWayLikeAction.bind(this);
     this.transitionHeartClass = this.transitionHeartClass.bind(this);
   }
@@ -127,10 +126,6 @@ class PostIndexItem extends React.Component {
     } else {
       return "favorite_border";
     }
-  }
-
-  likeTransition(){
-
   }
 
   render() {

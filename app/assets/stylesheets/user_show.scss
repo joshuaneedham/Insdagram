@@ -98,21 +98,3 @@
 .unfollowed-button:hover {
   cursor: pointer;
 }
-
-.modal {
-  margin: auto;
-  display: flex;
-  width: 960px;
-}
-
-.modal-content {
-  display: flex;
-  justify-content: flex-start;
-  font-family: 'Montserrat', sans-serif;
-  color: black;
-  font-size: 12px;
-}
-
-.modal-username {
-  padding-left: 20px;
-}

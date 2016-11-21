@@ -1,0 +1,30 @@
+.user-show-image {
+  cursor: pointer;
+}
+
+.modal {
+  margin: auto;
+  display: flex;
+  width: 960px;
+  min-height: 500px;
+  max-height: 600px;
+}
+
+.modal-content {
+  display: flex;
+  justify-content: flex-start;
+  font-family: 'Montserrat', sans-serif;
+  color: black;
+  font-size: 12px;
+}
+
+.modal-right {
+  padding-left: 20px;
+  font-family: 'Montserrat', sans-serif;
+  color: black;
+  font-size: 14px;
+}
+
+.modal-username {
+  cursor: pointer;
+}
