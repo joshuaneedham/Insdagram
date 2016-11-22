@@ -146,8 +146,6 @@ class PostShowModal extends React.Component {
   }
 
   followAction(){
-    this.setState({follow: this.state.follow + 1});
-
     const userId = this.currentPost.user_id;
     if (this.followStatus()) {
       this.props.destroyFollow(userId);
