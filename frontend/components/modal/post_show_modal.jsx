@@ -6,7 +6,6 @@ import CommentForm from '../comment_form/comment_form_container';
 class PostShowModal extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { follow: 0 };
 
     this.likeText = this.likeText.bind(this);
     this.navigateUserShow = this.navigateUserShow.bind(this);
@@ -68,7 +67,7 @@ class PostShowModal extends React.Component {
   }
 
   likeText(){
-    if (Object.values(this.props.post)[0].likes.length === 1) {
+    if (this.currentPost.likes.length === 1) {
       return <span> like</span>;
     } else {
       return <span> likes</span>;
@@ -76,8 +75,8 @@ class PostShowModal extends React.Component {
   }
 
   likeStatus(){
-    for (var key in Object.values(this.props.post)[0].likes) {
-      if (Object.values(this.props.post)[0].likes[key].user_id === this.props.currentUser.id) {
+    for (var key in this.currentPost.likes) {
+      if (this.currentPost.likes[key].user_id === this.props.currentUser.id) {
         return true;
       }
     }
@@ -85,7 +84,7 @@ class PostShowModal extends React.Component {
   }
 
   likeAction(){
-    const postId = Object.values(this.props.post)[0].id;
+    const postId = this.currentPost.id;
 
     if (this.likeStatus()) {
       this.props.destroyLike(postId);
@@ -112,7 +111,7 @@ class PostShowModal extends React.Component {
   }
 
   checkUser(){
-    if (this.props.currentUser.id !== Object.values(this.props.post)[0].user_id) {
+    if (this.props.currentUser.id !== this.currentPost.user_id) {
       return(
         <span className={ this.followCssClass() }
           onClick={this.followAction}>{ this.followText() }
@@ -149,7 +148,7 @@ class PostShowModal extends React.Component {
   followAction(){
     this.setState({follow: this.state.follow + 1});
 
-    const userId = Object.values(this.props.post)[0].user_id;
+    const userId = this.currentPost.user_id;
     if (this.followStatus()) {
       this.props.destroyFollow(userId);
     } else {
@@ -167,9 +166,10 @@ class PostShowModal extends React.Component {
   }
 
   render(){
-    if (Object.keys(this.props.post).length === 1) {
-      let currentPost = Object.values(this.props.post)[0];
-      const commentsRender = currentPost.comments.map( comment =>
+
+    if (this.props.post[Object.keys(this.props.post)[0]] !== undefined && this.props.state.currentImage === this.props.post[Object.keys(this.props.post)[0]].id){
+      this.currentPost = this.props.post[Object.keys(this.props.post)[0]];
+      const commentsRender = this.currentPost.comments.map( comment =>
         <div className="single-comment"
           key={comment.id}>
           <div className="caption-username comment-username"
@@ -181,29 +181,29 @@ class PostShowModal extends React.Component {
       );
       return (
         <div className="modal-content">
-          <img className="modal-image" src={currentPost.image_url}/>
+          <img className="modal-image" src={this.currentPost.image_url}/>
           <div className="modal-right">
             <div className="modal-upper">
               <div className="modal-header">
                 <span className="modal-username"
-                    onClick={() => this.navigateUserShow(currentPost.user_id)}>{currentPost.user.username}</span>
+                    onClick={() => this.navigateUserShow(this.currentPost.user_id)}>{this.currentPost.user.username}</span>
                   { this.checkUser() }
               </div>
               <div className="like-count-modal">
                 <span>
-                  { currentPost.likes.length }
+                  { this.currentPost.likes.length }
                   { this.likeText() }
                 </span>
                 <span className="modal-time">
-                  {this.timeSincePost(currentPost.created_at)}
+                  {this.timeSincePost(this.currentPost.created_at)}
                 </span>
               </div>
               <div className="caption-text-modal">
                 <span className="caption-username"
-                  onClick={() => this.navigateUserShow(currentPost.user_id)}>
-                  {currentPost.user.username}
+                  onClick={() => this.navigateUserShow(this.currentPost.user_id)}>
+                  {this.currentPost.user.username}
                 </span>
-                <span className="caption-text-modal"> {currentPost.caption}</span>
+                <span className="caption-text-modal"> {this.currentPost.caption}</span>
               </div>
               <div className="comments-render">
                 { commentsRender }
@@ -213,7 +213,7 @@ class PostShowModal extends React.Component {
               <div className="material-icons" onClick={this.likeAction}>
                 <i className={this.likeCssClass()}>{this.likeIcon()}</i>
               </div>
-              <CommentForm postId={currentPost.id} />
+              <CommentForm postId={this.currentPost.id} />
             </div>
           </div>
         </div>
