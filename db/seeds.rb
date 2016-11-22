@@ -15,7 +15,7 @@ Follow.destroy_all
 demo_user = User.create!(full_name: "Logan Alex", username: "insdagrammer", password: "testing")
 user2 = User.create!(full_name: "David DiPanfilo", username: "ddipanfilo", password: "secret3")
 user3 = User.create!(full_name: "John Doe", username: "jdoeee", password: "testing323")
-user4 = User.create!(full_name: "Jeff Seltzer", username: "seltz", password: "secrett")
+user4 = User.create!(full_name: "Jeff Paper", username: "paper", password: "secrett")
 jerry = User.create!(full_name: "Eli Tee", username: "mrjerry", password: "testtt323")
 drake = User.create!(full_name: "Aubrey Graham", username: "champpapi", password: "drizzy")
 user7 = User.create!(full_name: "Ben Wright", username: "benny9", password: "testing323")
