@@ -13,10 +13,53 @@ class PostShowModal extends React.Component {
     this.likeAction = this.likeAction.bind(this);
     this.checkUser = this.checkUser.bind(this);
     this.followAction = this.followAction.bind(this);
+    this.timeSincePost = this.timeSincePost.bind(this);
   }
 
   componentDidMount(){
     this.props.requestPost(this.props.state.currentImage);
+  }
+
+  timeSincePost(createdAt){
+    let currentTime = new Date();
+    let currentMinutes = currentTime.getUTCMinutes();
+    let currentHours = currentTime.getUTCHours();
+    let currentDate = currentTime.getUTCDate();
+    let currentMonth = currentTime.getUTCMonth();
+    let currentYear = currentTime.getUTCFullYear();
+
+    let postYear = createdAt.slice(0, 4);
+    let postMonth = createdAt.slice(5, 7);
+    let postDate = createdAt.slice(8, 10);
+    let postHours = createdAt.slice(11, 13);
+    let postMinutes = createdAt.slice(14, 16);
+    let postSeconds = createdAt.slice(17, 19);
+
+    let dateResult;
+
+    if (currentYear > postYear) {
+      dateResult = currentYear - postYear;
+      dateResult = dateResult + "y";
+    } else if (currentMonth > postMonth) {
+      dateResult = currentMonth - postMonth;
+      dateResult = dateResult + "m";
+    } else if(currentDate > postDate) {
+      dateResult = currentDate - postDate;
+      if (dateResult > 6) {
+        dateResult = Math.floor(dateResult / 7);
+        dateResult = dateResult + "w";
+      } else {
+      dateResult = dateResult + "d";
+      }
+    } else if (currentHours > postHours) {
+      dateResult = currentHours- postHours;
+      dateResult = dateResult + "h";
+    } else {
+      dateResult = currentMinutes- postMinutes;
+      dateResult = dateResult + "m";
+    }
+
+    return dateResult;
   }
 
   navigateUserShow(id) {
@@ -133,31 +176,40 @@ class PostShowModal extends React.Component {
             onClick={() => this.navigateUserShow(comment.user_id)}>
               {comment.username}
           </div>
-          <div className="caption-text comment-text">{comment.body}</div>
+          <span className="caption-text comment-text modal-text">{comment.body}</span>
         </div>
       );
       return (
         <div className="modal-content">
           <img className="modal-image" src={currentPost.image_url}/>
           <div className="modal-right">
-            <span className="modal-username"
-              onClick={() => this.navigateUserShow(currentPost.user_id)}>{currentPost.user.username}</span>
-            { this.checkUser() }
-            <div className="like-count">
-              { currentPost.likes.length }
-              { this.likeText() }
+            <div className="modal-upper">
+              <div className="modal-header">
+                <span className="modal-username"
+                    onClick={() => this.navigateUserShow(currentPost.user_id)}>{currentPost.user.username}</span>
+                  { this.checkUser() }
+              </div>
+              <div className="like-count-modal">
+                <span>
+                  { currentPost.likes.length }
+                  { this.likeText() }
+                </span>
+                <span className="modal-time">
+                  {this.timeSincePost(currentPost.created_at)}
+                </span>
+              </div>
+              <div className="caption-text-modal">
+                <span className="caption-username"
+                  onClick={() => this.navigateUserShow(currentPost.user_id)}>
+                  {currentPost.user.username}
+                </span>
+                <span className="caption-text-modal"> {currentPost.caption}</span>
+              </div>
+              <div className="comments-render">
+                { commentsRender }
+              </div>
             </div>
-            <div className="caption-text">
-              <span className="caption-username"
-                onClick={() => this.navigateUserShow(currentPost.user_id)}>
-                {currentPost.user.username}
-              </span>
-              <span className="caption-text"> {currentPost.caption}</span>
-            </div>
-            <div className="comments-render">
-              { commentsRender }
-            </div>
-            <div className="like-comment-render">
+            <div className="like-comment-render-modal">
               <div className="material-icons" onClick={this.likeAction}>
                 <i className={this.likeCssClass()}>{this.likeIcon()}</i>
               </div>
