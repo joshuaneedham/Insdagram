@@ -1,5 +1,6 @@
 import React from 'react';
 import PostIndexItem from '../post_index_item/post_index_item_container';
+import SuggestedUsersContainer from '../suggested_users/suggested_users_container';
 
 class PostIndex extends React.Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class PostIndex extends React.Component {
   }
 
   render(){
+
     const posts = this.props.posts.map( post =>
       <PostIndexItem post={post}
         key={post.id}
@@ -25,9 +27,20 @@ class PostIndex extends React.Component {
       </div>
     );
 
-    return (
-      indexItems
-    );
+
+    if (Array.isArray(this.props.suggestedUsers)){
+      if (this.props.posts.length > 5) {
+        return (
+          indexItems
+        );
+      } else {
+        return (
+          <SuggestedUsersContainer />
+        );
+      }
+    } else {
+      return (<div></div>);
+    }
   }
 }
 

@@ -9,7 +9,8 @@ const asArray = (obj) => Object.keys(obj).reverse().map(key => obj[key]);
 const mapStateToProps = (state) => {
   return ({
     currentUser: state.session.currentUser,
-    posts: asArray(state.posts)
+    posts: asArray(state.posts),
+    suggestedUsers: (state.suggestedUsers)
   });
 };
 
