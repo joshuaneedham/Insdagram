@@ -152,7 +152,6 @@ class PostShowModal extends React.Component {
     } else {
       this.props.createFollow(userId);
     }
-
   }
 
   followInformationText(){

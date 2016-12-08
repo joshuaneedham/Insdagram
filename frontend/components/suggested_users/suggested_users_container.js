@@ -1,13 +1,17 @@
 import { connect } from 'react-redux';
 import SuggestedUsers from './suggested_users';
+import { createFollow, destroyFollow } from '../../actions/follow_actions';
 
 const mapStateToProps = (state) => {
   return ({
-    suggestedUsers: (state.suggestedUsers)
+    suggestedUsers: (state.suggestedUsers),
+    currentUser: state.session.currentUser
   });
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
+  createFollow: userId => dispatch(createFollow(userId)),
+  destroyFollow: userId => dispatch(destroyFollow(userId))
 });
 
 export default connect(
