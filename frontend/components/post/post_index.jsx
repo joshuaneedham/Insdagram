@@ -12,10 +12,6 @@ class PostIndex extends React.Component {
     this.props.requestSuggestedUsers();
   }
 
-  // componentWillReceiveProps(nextProps){
-  //   nextProps
-  // }
-
   render(){
     const posts = this.props.posts.map( post =>
       <PostIndexItem post={post}
