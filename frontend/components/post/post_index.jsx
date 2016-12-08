@@ -17,7 +17,6 @@ class PostIndex extends React.Component {
   // }
 
   render(){
-
     const posts = this.props.posts.map( post =>
       <PostIndexItem post={post}
         key={post.id}
@@ -39,7 +38,10 @@ class PostIndex extends React.Component {
         );
       } else {
         return (
-          <SuggestedUsersContainer />
+          <div>
+            <SuggestedUsersContainer />
+            { indexItems }
+          </div>
         );
       }
     } else {
