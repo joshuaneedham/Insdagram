@@ -14,14 +14,17 @@ class SuggestedUsers extends React.Component {
 
   render() {
     const suggestions = this.props.suggestedUsers.map( user =>
-        <div className="suggested-user" key={user.id} onClick={() => this.navigateUserShow(user.id)}>
-          {user.username}
+        <div className="suggested-user" key={user.id}>
+          <span className="suggested-text" onClick={() => this.navigateUserShow(user.id)}>{user.username}</span>
         </div>
       );
 
 
     return (
-      <div>{suggestions}</div>
+      <div className="suggested-container">
+        <span className="suggested-title">Suggested Users</span>
+        {suggestions}
+      </div>
     );
   }
 }
