@@ -5,6 +5,9 @@ class SuggestedUsers extends React.Component {
 	constructor(props) {
 		super(props);
 
+
+    this.state = {toggle: false};
+
     this.navigateUserShow = this.navigateUserShow.bind(this);
     this.checkUser = this.checkUser.bind(this);
     this.followAction = this.followAction.bind(this);

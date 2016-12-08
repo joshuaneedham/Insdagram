@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import SuggestedUsers from './suggested_users';
 import { createFollow, destroyFollow } from '../../actions/follow_actions';
+import { requestPosts } from '../../actions/post_actions';
 
 const mapStateToProps = (state) => {
   return ({
