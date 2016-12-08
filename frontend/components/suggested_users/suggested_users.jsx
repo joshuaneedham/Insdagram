@@ -19,14 +19,20 @@ class SuggestedUsers extends React.Component {
     if (this.props.currentUser.id !== id) {
       return(
         <span className={ this.followCssClass(id) }
-          onClick={this.followAction(id)}>{ this.followText(id) }
+          onClick={() => this.followAction(id)}>{ this.followText(id) }
         </span>
       );
     }
   }
 
   followStatus(id){
-    if (this.props.currentUser.followings.includes(id)) {
+    const followings_ids = [];
+    this.props.currentUser.followings.forEach(user => {
+      followings_ids.push(user.id);
+    }
+    );
+
+    if (followings_ids.includes(id)) {
       return true;
     }
     return false;
@@ -60,6 +66,7 @@ class SuggestedUsers extends React.Component {
     const suggestions = this.props.suggestedUsers.map( user =>
         <div className="suggested-user" key={user.id}>
           <span className="suggested-text" onClick={() => this.navigateUserShow(user.id)}>{user.username}</span>
+          {this.checkUser(user.id)}
         </div>
       );
 
