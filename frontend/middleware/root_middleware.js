@@ -6,6 +6,7 @@ import CommentsMiddleware from './comments_middleware';
 import LikesMiddleware from './likes_middleware';
 import FollowMiddleware from './follow_middleware';
 import SearchMiddleware from './search_middleware';
+import SuggestedUsersMiddleware from './suggested_users_middleware';
 
 const RootMiddleware = applyMiddleware(
   SessionMiddleware,
@@ -14,7 +15,8 @@ const RootMiddleware = applyMiddleware(
   CommentsMiddleware,
   LikesMiddleware,
   FollowMiddleware,
-  SearchMiddleware
+  SearchMiddleware,
+  SuggestedUsersMiddleware
 );
 
 export default RootMiddleware;

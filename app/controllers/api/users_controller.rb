@@ -45,6 +45,11 @@ class Api::UsersController < ApplicationController
   def search
   end
 
+  def suggested_users
+    @users = User.where(username: "insdagrammer") + User.where(username: "mrjerry") + User.where(username: "champpapi")
+    render :index
+  end
+
   def user_params
     params.require(:user).permit(:username, :full_name, :password)
   end

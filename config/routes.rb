@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :users do
       collection do
         get 'search'
+        get 'suggested_users'
       end
       member do
         post 'follow'

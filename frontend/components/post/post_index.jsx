@@ -8,6 +8,7 @@ class PostIndex extends React.Component {
 
   componentDidMount() {
     this.props.requestPosts();
+    this.props.requestSuggestedUsers();
   }
 
   render(){
@@ -18,10 +19,14 @@ class PostIndex extends React.Component {
         />
     );
 
-    return (
+    const indexItems = (
       <div className="post-index-items">
          { posts }
       </div>
+    );
+
+    return (
+      indexItems
     );
   }
 }
