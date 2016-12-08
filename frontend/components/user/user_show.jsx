@@ -117,6 +117,7 @@ class UserShow extends React.Component {
         <div className="user-show-container">
           <div className="modal-container">
             <Modal className="modal"
+              contentLabel="modal"
               isOpen={this.state.modalOpen}
               onRequestClose={this.closeModal}
               style={ModalStyle}>
