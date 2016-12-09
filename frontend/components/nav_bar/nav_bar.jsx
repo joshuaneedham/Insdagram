@@ -8,11 +8,17 @@ class NavBar extends React.Component {
 
     this.showHeader = this.showHeader.bind(this);
     this.handleUserShow = this.handleUserShow.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
   }
 
   handleUserShow(e) {
     this.props.requestUser(this.props.currentUser.id);
     hashHistory.push(`/user/${this.props.currentUser.id}`);
+  }
+
+  handleLogout(){
+    this.props.logout();
+    this.props.clearPosts();
   }
 
   showHeader(){
@@ -26,7 +32,7 @@ class NavBar extends React.Component {
           onClick={this.handleUserShow} />
     		<img src={insdagramAssets.logoutButtonImage}
           className="header-logout-button icon"
-          onClick={this.props.logout} />
+          onClick={() => this.handleLogout() } />
       </div>
     );
   }

@@ -4,6 +4,7 @@ export const REQUEST_POSTS = "REQUEST_POSTS";
 export const REQUEST_POST = "REQUEST_POST";
 export const CREATE_POST = "CREATE_POST";
 export const RECEIVE_SINGLE_POST = "RECEIVE_SINGLE_POST";
+export const CLEAR_POSTS = "CLEAR_POSTS";
 
 export const requestPosts = () => ({
   type: REQUEST_POSTS
@@ -33,4 +34,8 @@ export const createPost = (post, success) => ({
 export const receiveSinglePost = post => ({
   type: RECEIVE_SINGLE_POST,
   post
+});
+
+export const clearPosts = () => ({
+  type: CLEAR_POSTS
 });
