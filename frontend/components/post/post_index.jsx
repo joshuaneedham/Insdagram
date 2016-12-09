@@ -12,6 +12,12 @@ class PostIndex extends React.Component {
     this.props.requestSuggestedUsers();
   }
 
+  componentDidUpdate(){
+    if (document.getElementById("suggested-show")) {
+      document.getElementById("suggested-show").className = "";
+    }
+  }
+
   render(){
     const posts = this.props.posts.map( post =>
       <PostIndexItem post={post}
@@ -26,7 +32,6 @@ class PostIndex extends React.Component {
       </div>
     );
 
-
     if (Array.isArray(this.props.suggestedUsers)){
       if (this.props.posts.length > 5) {
         return (
@@ -34,7 +39,7 @@ class PostIndex extends React.Component {
         );
       } else {
         return (
-          <div>
+          <div id="suggested-show" className="no-show">
             <SuggestedUsersContainer />
             { indexItems }
           </div>
